@@ -14,7 +14,7 @@ class App extends Component {
           <h1 className="App-title">Recycle Me!</h1>
         </header>
         <style>{'body { background-color: #499272; }'}</style>
-        {/*<Customers />*/}
+      { /* <Customers /> */ }
         <div className = "App-content">
         <Buttons name = "Ta en bild"/>
         <Buttons name = "Press button recieve bacon"/>

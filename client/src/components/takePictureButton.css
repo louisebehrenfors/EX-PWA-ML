@@ -1,14 +1,13 @@
 .buttonClass {
-    margin-top: 20 px;
     border: none; 
     border-radius: 3em;
     background-color: #003A21;
     position: relative;
     color: #75AF96; 
     width: 40%;
-    margin-left: 30%;
-    margin-right: 30%;
-    margin-bottom: 1%;
+    display: block;
+    margin: 0 auto;
+    margin-top: 2%;
 }
 .buttonClass:hover {
 
