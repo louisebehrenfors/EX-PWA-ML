@@ -1,17 +1,20 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
+import logo1 from './logo1.svg'; 
+
 import './App.css';
 import Customers from './components/customers';
+import Buttons from './components/takePictureButton';
 
 class App extends Component {
   render() {
     return (
       <div className="App">
         <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">React Express Starter</h1>
+          <img src={logo1} className="App-logo" alt="logo" />
+          <h1 className="App-title">Recycle Me!</h1>
         </header>
-        <Customers />
+        {/*<Customers />*/}
+        <Buttons />
       </div>
     );
   }
