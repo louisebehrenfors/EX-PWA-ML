@@ -16,7 +16,8 @@ class App extends Component {
         <style>{'body { background-color: #499272; }'}</style>
         {/*<Customers />*/}
         <div className = "App-content">
-        <Buttons />
+        <Buttons name = "Ta en bild"/>
+        <Buttons name = "Press button recieve bacon"/>
         </div>
       </div>
     );
