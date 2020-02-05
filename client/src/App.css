@@ -28,6 +28,18 @@
   margin-top: 20px;
   height: 90px;
 }
+
+.App-footer{
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  font-size: 10px;
+  width: 100%;
+  background-color: #003a21;
+  color:white;
+  text-align: center;
+
+}
 @keyframes App-logo-spin {
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }

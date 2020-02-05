@@ -18,6 +18,9 @@ class App extends Component {
         <div className = "App-content">
         <Buttons />
         </div>
+        <div className="App-footer">
+          <p> Recycle Me PWA</p>
+        </div>
       </div>
     );
   }
