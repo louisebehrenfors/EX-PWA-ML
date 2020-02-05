@@ -3,7 +3,7 @@ import logo1 from './logo1.svg';
 
 import './App.css';
 
-import Buttons from './components/takePictureButton';
+import Buttons from './components/buttons';
 
 class App extends Component {
   render() {
@@ -16,8 +16,7 @@ class App extends Component {
         <style>{'body { background-color: #499272; }'}</style>
       { /* <Customers /> */ }
         <div className = "App-content">
-        <Buttons name = "Ta en bild"/>
-        <Buttons name = "Press button recieve bacon"/>
+        <Buttons/>
         </div>
       </div>
     );
