@@ -45,9 +45,9 @@ componentDidMount(){
     render () {
         return (
             <div className="cameraWrapper">
-            <video id="cameraStream" width="800" height="600" autoPlay></video>
-            <canvas id="canvas" height="800" width="600"></canvas>
-            <button className="cameraButtons" id="takePicture"> foto</button> 
+            <video id="cameraStream" autoPlay></video>
+            <canvas id="canvas" ></canvas>
+            <button className="cameraButtons" id="takePicture"> Ta bild!</button> 
             <button className="cameraButtons" id="cancel">Avbryt</button>
             </div>
         );
