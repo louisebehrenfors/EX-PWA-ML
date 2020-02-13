@@ -32,7 +32,7 @@ class Camera extends Component {
     render () {
         return (
             <div className="cameraWrapper">
-            <video id="cameraStream" width="800" height="600" autoPlay></video>
+            <video id="cameraStream" autoPlay></video>
             {/*<canvas id="canvas" height="800" width="600"></canvas> */}
             <button className="cameraButtons" id="takePicture" onClick={this.takePictureClicked}>Ta foto</button> 
             <button className="cameraButtons" id="cancel" onClick={this.cancelClicked}>Avbryt</button>
@@ -42,4 +42,5 @@ class Camera extends Component {
     }
 
 }
+
 export default Camera;

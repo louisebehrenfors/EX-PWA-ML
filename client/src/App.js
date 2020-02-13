@@ -4,7 +4,10 @@ import logo1 from './logo1.svg';
 import './App.css';
 
 import Buttons from './components/buttons.js';
-import Camera from './components/camera.js'
+import Camera from './components/camera.js';
+
+
+
 class App extends Component {
   constructor () {
     super();
@@ -30,6 +33,7 @@ class App extends Component {
         {this.state.cameraOpen ? <Camera cancelClicked={this.setCameraState} displayCamera={this.setCameraState}/> : <Buttons takePhotoClicked={this.setCameraState}/>}
         {/*<button onClick={this.setCameraState}>Tryck på mig</button>*/}
         {/*<Buttons cameraOpen={this.state}/>*/}
+        
         </div>
       </div>
     );
