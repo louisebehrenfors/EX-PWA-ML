@@ -4,7 +4,7 @@
     background-color: #003A21;
     position: relative;
     color: #75AF96; 
-    width: 40%;
+    width: 80vw;
     display: block;
     margin: 0 auto;
     margin-top: 2%;
@@ -21,3 +21,10 @@
     display: block;    
     margin-top: 2%;
 }
+
+@media only screen and (min-width: 800px) {
+    .buttonClass{
+        width:50vw;
+        font-size: 16px;
+    }
+  }

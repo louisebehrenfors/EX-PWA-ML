@@ -8,16 +8,20 @@
     margin: 0 auto;
     margin-top: 2%;
 }
-
-<<<<<<< HEAD
-#video {
-    width: 20%;
-    height: 50px;
-=======
 #cameraStream {
-    
->>>>>>> 7537da2f3190d969e53c03361f9afd0d3be81748
+    margin-top: 0px;
+    height: 100%; 
+    width: 100vw; 
+    overflow: hidden;
     display: block;
     margin: 0 auto;
-    margin-top: 2%;
+
+
+   /* margin-top: 2%;*/
 }
+
+@media only screen and (min-width: 800px) {
+    #cameraStream{
+        width:70vw;
+    }
+  }
