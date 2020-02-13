@@ -1,0 +1,17 @@
+.cameraButtons {
+    border: none; 
+    border-radius: 3em;
+    background-color: #003A21;
+    color: #75AF96; 
+    width: 20%;
+    height: 50px;
+    margin: 0 auto;
+    margin-top: 2%;
+}
+
+#cameraStream {
+    
+    display: block;
+    margin: 0 auto;
+    margin-top: 2%;
+}
