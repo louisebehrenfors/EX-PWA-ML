@@ -24,6 +24,8 @@ playVideo() {
     const context = canvas.getContext('2d');
     pictureButton.addEventListener('click', () => {
         video.srcObject.getVideoTracks().forEach(track => track.stop());
+        canvas.style.display = "block";
+        video.style.display = "none";
         context.drawImage(video,0,0,canvas.width,canvas.height);
     });
     cancelButton.addEventListener('click', () => {
@@ -44,7 +46,7 @@ componentDidMount(){
         return (
             <div className="cameraWrapper">
             <video id="cameraStream" width="800" height="600" autoPlay></video>
-            <canvas id="canvas" height="800" width="600"></canvas> 
+            <canvas id="canvas" height="800" width="600"></canvas>
             <button className="cameraButtons" id="takePicture"> foto</button> 
             <button className="cameraButtons" id="cancel">Avbryt</button>
             </div>

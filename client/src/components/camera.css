@@ -8,11 +8,16 @@
     margin: 0 auto;
     margin-top: 2%;
 }
-
-#video {
-    width: 20%;
-    height: 50px;
+#cameraStream {
+    margin-top: 0px;
+    height: 100%; 
+    width: 100vw; 
+    overflow: hidden;
     display: block;
     margin: 0 auto;
-    margin-top: 2%;
+    /* margin-top: 2%;*/
+}
+#canvas {
+    display: none;
+    margin: 0 auto;
 }
