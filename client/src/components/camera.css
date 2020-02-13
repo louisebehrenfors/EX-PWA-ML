@@ -1,23 +1,18 @@
-.buttonClass {
+.cameraButtons {
     border: none; 
     border-radius: 3em;
     background-color: #003A21;
-    position: relative;
     color: #75AF96; 
-    width: 40%;
-    display: block;
+    width: 20%;
+    height: 50px;
     margin: 0 auto;
     margin-top: 2%;
 }
-.buttonClass:hover {
-
-    background-color: rgb(35, 56, 47);
-
-}
 
 #video {
-    position: relative;
+    width: 20%;
+    height: 50px;
+    display: block;
     margin: 0 auto;
-    display: block;    
     margin-top: 2%;
 }
