@@ -9,9 +9,14 @@
     margin-top: 2%;
 }
 
+<<<<<<< HEAD
 #video {
     width: 20%;
     height: 50px;
+=======
+#cameraStream {
+    
+>>>>>>> 7537da2f3190d969e53c03361f9afd0d3be81748
     display: block;
     margin: 0 auto;
     margin-top: 2%;
