@@ -23,12 +23,12 @@ playVideo() {
     const canvas = document.getElementById('canvas');
     const context = canvas.getContext('2d');
     pictureButton.addEventListener('click', () => {
-        video.srcObject.getVideoTracks().forEach(track => track.stop());
         canvas.style.display = "block";
         video.style.display = "none";
         canvas.style.width = video.innerWidth;
         canvas.style.height = video.innerHeight;
         context.drawImage(video,0,0,canvas.width,canvas.height);
+        video.srcObject.getVideoTracks().forEach(track => track.stop());
     });
     cancelButton.addEventListener('click', () => {
         video.srcObject.getVideoTracks().forEach(track => track.stop());
