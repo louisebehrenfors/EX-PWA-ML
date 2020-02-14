@@ -1,10 +1,16 @@
 import React, { Component } from 'react';
 import './buttons.css';
 
+
 function buildFileSelector(){
     const fileSelector = document.createElement('input');
     fileSelector.setAttribute('type', 'file');
-    fileSelector.setAttribute('multiple', 'multiple');
+    fileSelector.setAttribute('id', 'theLAW');
+   // fileSelector.setAttribute("onchange", 'loadFile(event);' ); //function hello(){loadImage();}
+    fileSelector.setAttribute('accept','image/*');
+    console.log(fileSelector);
+  
+   // fileSelector.setAttribute('multiple', 'multiple');
     return fileSelector;
 }
 
@@ -14,12 +20,16 @@ class Buttons extends Component{
     this.state = {cameraOpen: true};
     this.takePhotoClicked = this.takePhotoClicked.bind(this);
  }
+ 
 
  
 componentDidMount () {
      console.log(this.props);
-     this.fileSelector = buildFileSelector();
+     this.fileSelector = buildFileSelector(); 
 }
+
+
+
 takePhotoClicked() {
     console.log("Photo button was clicked")
     this.setState({
@@ -62,6 +72,7 @@ handleClickFile() {
 handleFileSelect = (e) => {
     e.preventDefault(); 
     this.fileSelector.click(); 
+    
 }
 
  render() {
