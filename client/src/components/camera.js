@@ -18,8 +18,6 @@ class Camera extends Component {
 playVideo() {
     //plays a video stream and takes a picture or cancels the operation depending on what button was pressed 
     const video = document.getElementById('cameraStream');
-    video.style.width = window.innerWidth; 
-    video.style.height = window.innerHeight;
     const cancelButton = document.getElementById('cancel');
     const pictureButton = document.getElementById('takePicture');
     const canvas = document.getElementById('canvas');

@@ -12,17 +12,29 @@
     margin-top: 0px;
     overflow: hidden;
     display: block;
+    width: 60vw;
+    height:40vw;
+    object-fit: cover;
     margin: 0 auto;
 
 }
 #canvas{
     display: none;
-    object-fit: cover;
+    object-fit:cover;
     margin: 0 auto;
+    width: 60vw;
+    height: 40vw;
 }
 
 @media only screen and (min-width: 800px) {
     #cameraStream{
         object-fit: cover;
+        width: 50vw;
+        height: 30vw;
+    }
+
+    #canvas{
+        width: 50vw;
+        height: 30vw;
     }
   }
