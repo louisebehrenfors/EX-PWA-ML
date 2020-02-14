@@ -18,6 +18,8 @@ class Camera extends Component {
 playVideo() {
     //plays a video stream and takes a picture or cancels the operation depending on what button was pressed 
     const video = document.getElementById('cameraStream');
+    video.style.width = window.innerWidth; 
+    video.style.height = window.innerHeight;
     const cancelButton = document.getElementById('cancel');
     const pictureButton = document.getElementById('takePicture');
     const canvas = document.getElementById('canvas');
@@ -26,6 +28,8 @@ playVideo() {
         video.srcObject.getVideoTracks().forEach(track => track.stop());
         canvas.style.display = "block";
         video.style.display = "none";
+        canvas.style.width = video.innerWidth;
+        canvas.style.height = video.innerHeight;
         context.drawImage(video,0,0,canvas.width,canvas.height);
     });
     cancelButton.addEventListener('click', () => {
@@ -45,9 +49,9 @@ componentDidMount(){
     render () {
         return (
             <div className="cameraWrapper">
-            <video id="cameraStream" width="800" height="600" autoPlay></video>
-            <canvas id="canvas" height="800" width="600"></canvas>
-            <button className="cameraButtons" id="takePicture"> foto</button> 
+            <video id="cameraStream" autoPlay></video>
+            <canvas id="canvas" width="1000" height="500"></canvas>
+            <button className="cameraButtons" id="takePicture"> Ta bild!</button> 
             <button className="cameraButtons" id="cancel">Avbryt</button>
             </div>
         );
