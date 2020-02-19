@@ -5,7 +5,7 @@ import './App.css';
 
 import Buttons from './components/buttons.js';
 import Camera from './components/camera.js';
-
+import ButtonTest from './components/testButton';
 
 
 class App extends Component {
@@ -31,10 +31,11 @@ class App extends Component {
         </header>
         <style>{'body { background-color: #499272; }'}</style>
         <div className = "App-content">
+      
         {this.state.cameraOpen ? <Camera cancelClicked={this.setCameraState} displayCamera={this.setCameraState}/> : <Buttons takePhotoClicked={this.setCameraState}/>}
         {/*<button onClick={this.setCameraState}>Tryck på mig</button>*/}
         {/*<Buttons cameraOpen={this.state}/>*/}
-        
+        <ButtonTest/>
         </div>
         <div className="App-footer">
           <p> Recycle Me PWA</p>

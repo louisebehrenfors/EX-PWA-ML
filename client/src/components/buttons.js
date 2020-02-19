@@ -54,10 +54,10 @@ _handleSubmit(e) {
         <button className="buttonClass" id="takephoto" onClick = {this.takePhotoClicked}>
         <h2>Ta ett foto</h2>   
         </button> 
-        <input type="file" id="pictureUpload" accept="image/*"></input>
+        {/* <input type="file" id="pictureUpload" accept="image/*"></input>
         <button className="buttonClass" onClick = {this.handleFileSelect}> <h2> Ladda upp en bild</h2> </button>
-        
-        <form onSubmit={(e)=>this._handleSubmit(e)}>
+         */}
+        {/* <form onSubmit={(e)=>this._handleSubmit(e)}>
           <input className="fileInput" 
             type="file" 
             onChange={(e)=>this._handleImageChange(e)} />
@@ -67,7 +67,7 @@ _handleSubmit(e) {
         </form>
         <div className="imgPreview">
           {$imagePreview}
-        </div>
+        </div> */}
 
         <video id="video" autoPlay></video>
         <canvas id="canvas" ></canvas>
