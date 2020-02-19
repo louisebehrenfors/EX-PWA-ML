@@ -8,8 +8,12 @@
     display: block;
     margin: 0 auto;
     margin-top: 2%;
+
 }
 
+img {
+    width: 50%; 
+}
 #file {
     display: none;
 }

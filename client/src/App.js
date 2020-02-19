@@ -33,8 +33,6 @@ class App extends Component {
         <div className = "App-content">
       
         {this.state.cameraOpen ? <Camera cancelClicked={this.setCameraState} displayCamera={this.setCameraState}/> : <Buttons takePhotoClicked={this.setCameraState}/>}
-        {/*<button onClick={this.setCameraState}>Tryck på mig</button>*/}
-        {/*<Buttons cameraOpen={this.state}/>*/}
         <ButtonTest/>
         </div>
         <div className="App-footer">
