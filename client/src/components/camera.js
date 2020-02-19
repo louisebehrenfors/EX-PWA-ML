@@ -44,8 +44,6 @@ class Camera extends Component {
                this.takePictureClicked();
                canvas.style.display = "block";
                video.style.display = "none";
-               /*canvas.style.width = video.innerWidth;
-               canvas.style.height = video.innerHeight;*/
                context.drawImage(video,0,0);
                video.srcObject.getVideoTracks().forEach(track => track.stop());
            } 
