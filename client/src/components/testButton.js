@@ -11,9 +11,11 @@ class testButton extends Component{
             fileSelected: false
         }
         this.handleChange = this.handleChange.bind(this);
+        this.sendDatatoStartScreen = this.sendDatatoStartScreen.bind(this); 
       }
       _handleButtonClick = (e) => {
        this.refs.fileUploader.click();
+       this.props.parentCallBack("Hallo");
     }
 
     handleChange(event){
@@ -23,6 +25,7 @@ class testButton extends Component{
        }
        else{
         let file = event.target.files[0];
+
         file = URL.createObjectURL(file);
         this.setState(() => ({ 
             file: file,
@@ -31,16 +34,16 @@ class testButton extends Component{
        }
     }
 
+    sendDatatoStartScreen = () => {
+        this.props.parentCallBack("Hallo");
+    }
+
     render () {
         return (
             <div>
-                {/* <button className="submitButton" 
-                onClick={this._handleButtonClick}
-                >
-                <h2>Ladda upp en bild</h2>
-                <input type="file" id="file" ref="fileUploader" onChange={this.handleChange}/>
-                </button>            */}
-                {this.state.fileSelected ? <button className="submitButton"> <h2>Välj denna bild</h2></button> :                
+
+                {/* {this.state.fileSelected ? this.sendDatatoStartScreen : <button></button>} */}
+                {/* {this.state.fileSelected ? <button className="submitButton"> <h2>Välj denna bild</h2></button> :                 */}
                 <button className="submitButton" 
                 onClick={this._handleButtonClick}
                 >
@@ -48,7 +51,7 @@ class testButton extends Component{
                 <input type="file" id="file" ref="fileUploader" onChange={this.handleChange}/>
                 </button>   
                 
-                }
+                
                 <img src = {this.state.file} />
             </div>
         ); 

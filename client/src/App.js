@@ -3,23 +3,19 @@ import logo1 from './logo1.svg';
 
 import './App.css';
 
-import Buttons from './components/buttons.js';
-import Camera from './components/camera.js';
-import ButtonTest from './components/testButton';
-
+// import Buttons from './components/buttons.js';
+// import Camera from './components/camera.js';
+// import ButtonTest from './components/testButton';
+import StartAppScreen from './screens/startAppScreen';
+import ChosenAppScreen from './screens/chosenAppScreen';
 
 class App extends Component {
   constructor () {
     super();
     this.state = {
-      cameraOpen: false 
+ 
     };
-    this.setCameraState = this.setCameraState.bind(this);
-  }
-  setCameraState(cameraState){
-    //sets camera state according to what element was clicked
-    this.setState({cameraOpen: cameraState});
-    console.log(this.state.cameraOpen);
+
   }
   render() {
     return (
@@ -31,9 +27,8 @@ class App extends Component {
         </header>
         <style>{'body { background-color: #499272; }'}</style>
         <div className = "App-content">
-      
-        {this.state.cameraOpen ? <Camera cancelClicked={this.setCameraState} displayCamera={this.setCameraState}/> : <Buttons takePhotoClicked={this.setCameraState}/>}
-        <ButtonTest/>
+          <StartAppScreen />  
+          <ChosenAppScreen />
         </div>
         <div className="App-footer">
           <p> Recycle Me PWA</p>
