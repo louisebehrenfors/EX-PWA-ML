@@ -11,22 +11,24 @@ class testButton extends Component{
             fileSelected: false
         }
         this.handleChange = this.handleChange.bind(this);
-        this.sendDatatoStartScreen = this.sendDatatoStartScreen.bind(this); 
+        // this.sendDatatoStartScreen = this.sendDatatoStartScreen.bind(this); 
       }
       _handleButtonClick = (e) => {
        this.refs.fileUploader.click();
-       this.props.parentCallBack("Hallo");
     }
 
     handleChange(event){
        let target = event.target; 
+       console.log(target.value.length);
        if(target.value.length === 0) {
            this.setState(() => ({ file: null, fileSelected:false }));
        }
        else{
         let file = event.target.files[0];
-
+        console.log(file.name); 
         file = URL.createObjectURL(file);
+        //this.props.parentCallBack("Hallo");
+        this.callBackParent();
         this.setState(() => ({ 
             file: file,
             fileSelected: true 
@@ -34,8 +36,8 @@ class testButton extends Component{
        }
     }
 
-    sendDatatoStartScreen = () => {
-        this.props.parentCallBack("Hallo");
+    callBackParent = () => {
+        this.props.parentCallBack(this.state.file);
     }
 
     render () {

@@ -10,7 +10,7 @@ class StartScreen extends Component {
         super();
         this.state = {
           cameraOpen: false, 
-          message: ""
+          fileChosen: ""
         };
         this.setCameraState = this.setCameraState.bind(this);
         this.callbackFunction = this.callbackFunction.bind(this);
@@ -23,14 +23,15 @@ class StartScreen extends Component {
       }
 
       callbackFunction = (childData) => {
-          this.setState({message: childData})
-          console.log("här r vi"+this.state.message); 
+          console.log("detta?" + childData);
+          this.setState({fileChosen: childData})
+          console.log("här r vi"+this.state.fileChosen); 
       }
     render() {
         return(
             <div className="StartScreen">
                 {this.state.cameraOpen ? <Camera cancelClicked={this.setCameraState} displayCamera={this.setCameraState}/> : <Buttons takePhotoClicked={this.setCameraState}/>}
-                <ButtonTest parentCallback = {this.callbackFunction}/>
+                <ButtonTest parentCallBack = {this.callbackFunction}/>
             </div>
         ); 
     }
