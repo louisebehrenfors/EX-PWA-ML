@@ -1,6 +1,5 @@
 .App {
   text-align: center;
- 
 }
 
 .App-logo {
@@ -28,6 +27,7 @@
 
 .App-content{
   height: 90px;
+  padding: 10px;
 }
 
 .App-footer{

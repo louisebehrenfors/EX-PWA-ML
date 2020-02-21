@@ -13,10 +13,25 @@ class App extends Component {
   constructor () {
     super();
     this.state = {
- 
+      pictureOk: false,
     };
-
+    this.changeScreen = this.changeScreen.bind(this); 
   }
+
+  changeScreen = childData => {
+    this.setState({
+      pictureOk: true,
+      filechosen: childData
+    });
+  }
+
+  cancelPressed = () => {
+    this.setState({
+      pictureOk: false,
+      filechosen: ''
+    }); 
+  }
+
   render() {
     return (
     
@@ -26,9 +41,8 @@ class App extends Component {
           <h1 className="App-title">Recycle Me!</h1>
         </header>
         <style>{'body { background-color: #499272; }'}</style>
-        <div className = "App-content">
-          <StartAppScreen />  
-          <ChosenAppScreen />
+        <div className = "App-content">  
+          {this.state.pictureOk ?   <ChosenAppScreen cancelPress={this.cancelPressed} imageFromParent = {this.state.filechosen}  /> : <StartAppScreen onChangeScreen = {this.changeScreen} />   }
         </div>
         <div className="App-footer">
           <p> Recycle Me PWA</p>

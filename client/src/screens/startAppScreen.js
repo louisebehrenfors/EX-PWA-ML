@@ -23,15 +23,16 @@ class StartScreen extends Component {
       }
 
       callbackFunction = (childData) => {
-          console.log("detta?" + childData);
           this.setState({fileChosen: childData})
-          console.log("här r vi"+this.state.fileChosen); 
+          this.props.onChangeScreen(childData);
       }
+
     render() {
         return(
             <div className="StartScreen">
-                {this.state.cameraOpen ? <Camera cancelClicked={this.setCameraState} displayCamera={this.setCameraState}/> : <Buttons takePhotoClicked={this.setCameraState}/>}
+                {this.state.cameraOpen ? <Camera cancelClicked={this.setCameraState} displayCamera={this.setCameraState}/> :  <Buttons takePhotoClicked={this.setCameraState}/>}
                 <ButtonTest parentCallBack = {this.callbackFunction}/>
+                <img src = {this.state.fileChosen} />
             </div>
         ); 
     }

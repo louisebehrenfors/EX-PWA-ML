@@ -9,8 +9,9 @@ class ChosenAppScreen extends Component {
     render() {
         return(
         <div className="photoChosed">
+            <img src= {this.props.imageFromParent} />
             <button className="buttonClass"><h2>Välj denna bild</h2></button>
-            <button className="buttonClass"><h2>Avbryt</h2></button>
+            <button onClick={this.props.cancelPress} className="buttonClass"><h2>Avbryt</h2></button>
         </div>
         ); 
     }
