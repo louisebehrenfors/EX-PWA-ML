@@ -9,8 +9,9 @@ const router = express.Router();
 // app.use(cors());
 
   app.use('/static',express.static(__dirname + '/client/build/static'));
+  app.use('/',express.static(__dirname + '/client/build'))
 //   app.use('/public',express.static(__dirname + '/client/public'));
-  app.use(express.static('client'));
+  //app.use(express.static('client'));
 
 
  app.get('/', (req, res, next) => {
