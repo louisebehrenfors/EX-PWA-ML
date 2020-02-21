@@ -37,17 +37,14 @@ class testButton extends Component{
         // this.setState({
         //     test: 'hallo!'
         // });
-        console.log("Nytt testg", fileReader)
         //this.setState({file: 'fileReader.result'});
         files = URL.createObjectURL(files);
-        console.log(files); 
         //this.props.parentCallBack("Hallo");
         // this.setState({file: window.URL.createObjectURL(files)}); 
         // this.setState(() => ({ 
         //     file: files,
         //     fileSelected: true 
         // }));
-        console.log("efter:"+this.state.test);
         this.callBackParent(files);
        }
     }
@@ -56,7 +53,6 @@ class testButton extends Component{
         this.setState({
             file: sendData
         });
-        console.log("fil "+sendData); 
         this.props.parentCallBack(sendData);
     }
 
