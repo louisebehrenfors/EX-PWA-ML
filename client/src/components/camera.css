@@ -8,6 +8,9 @@
     margin: 0 auto;
     margin-top: 2%;
 }
+#savePicture {
+    display: none;
+}
 #cameraStream {
     margin-top: 0px;
     overflow: hidden;

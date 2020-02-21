@@ -5,7 +5,7 @@ class Camera extends Component {
     constructor (props) {
         super(props);
         //cameraOpen states if the camera is open or closed, pictureTaken if a picture was taken or not, view decides what text to put on the button
-        this.state = { cameraOpen: false, pictureTaken: false, view: true};
+        this.state = { cameraOpen: false, pictureTaken: false};
         this.cancelClicked = this.cancelClicked.bind(this);
         this.playVideo = this.playVideo.bind(this);
     }
@@ -28,11 +28,8 @@ class Camera extends Component {
         });
     }
     savePicture() {
-        alert('Save clicked');
-            this.setState({
-            view: true
-        });
-
+        alert('Image saved!');
+        this.setState({cameraOpen : false});
     }
     playVideo() {
        //plays a video stream and takes a picture or cancels the operation depending on what button was pressed 
@@ -40,26 +37,31 @@ class Camera extends Component {
        var isVideoPlaying = false;
        const cancelButton = document.getElementById('cancel');
        const pictureButton = document.getElementById('takePicture');
+       const savePictureButton = document.getElementById('savePicture');
        const canvas = document.getElementById('canvas');
        const context = canvas.getContext('2d');
        navigator.mediaDevices.getUserMedia({video: true}).then((stream) => {
            video.srcObject = stream;
            isVideoPlaying = true;
        });
-            pictureButton.addEventListener('click', () => {
-                if(!this.state.pictureTaken && isVideoPlaying && this.state.view){
-                    this.setState({view: false});
-                    this.takePictureClicked();
-                    canvas.style.display = "block";
-                    video.style.display = "none";
-                    context.drawImage(video,0,0);
-                    video.srcObject.getVideoTracks().forEach(track => track.stop());
-                } else {
-                    this.savePicture();
-                } 
-            });
-            
-       cancelButton.addEventListener('click', () => {
+        pictureButton.addEventListener('click', () => {
+            if(!this.state.pictureTaken && isVideoPlaying){
+                this.takePictureClicked();
+                canvas.style.display = "block";
+                video.style.display = "none";
+                context.drawImage(video,0,0);
+                video.srcObject.getVideoTracks().forEach(track => track.stop());
+                pictureButton.style.display = "none";
+                savePictureButton.style.display = "block";
+            } 
+        });
+
+        savePictureButton.addEventListener('click', () => {
+            this.savePicture();
+
+        });
+
+        cancelButton.addEventListener('click', () => {
            if(isVideoPlaying){
             video.srcObject.getVideoTracks().forEach(track => track.stop());
             isVideoPlaying = false;
@@ -78,7 +80,8 @@ componentDidMount(){
             <div className="cameraWrapper">
             <video id="cameraStream" autoPlay></video>
             <canvas id="canvas" width="751" height="450"></canvas>
-            <button className="cameraButtons" id="takePicture"> { this.state.view ? 'Ta bild' : 'Spara bild' } </button> 
+            <button className="cameraButtons" id="takePicture"> Ta bild </button> 
+            <button className="cameraButtons" id="savePicture"> Spara bild </button>
             <button className="cameraButtons" id="cancel">Avbryt</button>
             </div>
         );
