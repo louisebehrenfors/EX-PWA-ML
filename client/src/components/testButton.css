@@ -1,0 +1,31 @@
+.submitButton{
+    border: none; 
+    border-radius: 3em;
+    background-color: #003A21;
+    position: relative;
+    color: #75AF96; 
+    width: 80vw;
+    display: block;
+    margin: 0 auto;
+    margin-top: 2%;
+    margin-bottom: 2%;
+}
+
+.submitButton:hover {
+
+    background-color: rgb(35, 56, 47);
+
+}
+
+img {
+    width: 50%; 
+}
+#file {
+    display: none;
+}
+@media only screen and (min-width: 800px) {
+    .submitButton{
+        width:50vw;
+        font-size: 16px;
+    }
+  }

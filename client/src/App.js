@@ -3,24 +3,35 @@ import logo1 from './logo1.svg';
 
 import './App.css';
 
-import Buttons from './components/buttons.js';
-import Camera from './components/camera.js';
-
-
+// import Buttons from './components/buttons.js';
+// import Camera from './components/camera.js';
+// import ButtonTest from './components/testButton';
+import StartAppScreen from './screens/startAppScreen';
+import ChosenAppScreen from './screens/chosenAppScreen';
 
 class App extends Component {
   constructor () {
     super();
     this.state = {
-      cameraOpen: false 
+      pictureOk: false,
     };
-    this.setCameraState = this.setCameraState.bind(this);
+    this.changeScreen = this.changeScreen.bind(this); 
   }
-  setCameraState(cameraState){
-    //sets camera state according to what element was clicked
-    this.setState({cameraOpen: cameraState});
-    console.log(this.state.cameraOpen);
+
+  changeScreen = childData => {
+    this.setState({
+      pictureOk: true,
+      filechosen: childData
+    });
   }
+
+  cancelPressed = () => {
+    this.setState({
+      pictureOk: false,
+      filechosen: ''
+    }); 
+  }
+
   render() {
     return (
     
@@ -30,11 +41,11 @@ class App extends Component {
           <h1 className="App-title">Recycle Me!</h1>
         </header>
         <style>{'body { background-color: #499272; }'}</style>
-        <div className = "App-content">
-        {this.state.cameraOpen ? <Camera cancelClicked={this.setCameraState} displayCamera={this.setCameraState}/> : <Buttons takePhotoClicked={this.setCameraState}/>}
-        {/*<button onClick={this.setCameraState}>Tryck på mig</button>*/}
-        {/*<Buttons cameraOpen={this.state}/>*/}
-        
+        <div className = "App-content">  
+          {this.state.pictureOk ?   <ChosenAppScreen cancelPress={this.cancelPressed} imageFromParent = {this.state.filechosen}  /> : <StartAppScreen onChangeScreen = {this.changeScreen} />   }
+        </div>
+        <div className="App-footer">
+          <p> Recycle Me PWA</p>
         </div>
       </div>
     );
