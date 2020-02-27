@@ -15,7 +15,7 @@ const router = express.Router();
   //app.use(express.static('client'));
 
 
- router.get('/', (req, res, next) => {
+ app.get('/', (req, res, next) => {
 
     console.log(path.join(__dirname,'/client/build/index.html'));
     console.log(express.static(__dirname));
