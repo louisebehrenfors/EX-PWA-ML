@@ -10,11 +10,12 @@ const router = express.Router();
 
   app.use('/static',express.static(__dirname + '/client/build/static'));
   app.use('/',express.static(__dirname + '/client/build'))
+  //app.use(express.static('public'));
 //   app.use('/public',express.static(__dirname + '/client/public'));
   //app.use(express.static('client'));
 
 
- app.get('/', (req, res, next) => {
+ router.get('/', (req, res, next) => {
 
     console.log(path.join(__dirname,'/client/build/index.html'));
     console.log(express.static(__dirname));
