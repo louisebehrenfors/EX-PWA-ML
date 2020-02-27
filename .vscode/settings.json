@@ -4,7 +4,8 @@
         "client/node_modules{,/**}",
         ".vscode{,/**}"
     ],
-    "appService.defaultWebAppToDeploy": "",
+    "appService.defaultWebAppToDeploy": "/subscriptions/fdcefc13-1b72-4d8c-aef5-285b47a96e73/resourceGroups/exjobb-pwa/providers/Microsoft.Web/sites/RecycleMePwa",
     // "appService.deploySubpath": "",
-    "git.ignoreLimitWarning": true
+    "git.ignoreLimitWarning": true,
+    "appService.deploySubpath": ""
 }
