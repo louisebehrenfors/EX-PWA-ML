@@ -6,7 +6,6 @@ class Buttons extends Component{
     super(props); 
     this.state = {cameraOpen: true};
     this.takePhotoClicked = this.takePhotoClicked.bind(this);
-    this.fileSelector = this.buildFileSelector.bind(this);
  }
 
 takePhotoClicked() {

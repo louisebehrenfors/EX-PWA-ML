@@ -43,13 +43,18 @@ class Camera extends Component {
        navigator.mediaDevices.getUserMedia({video: true}).then((stream) => {
            video.srcObject = stream;
            isVideoPlaying = true;
+       }).catch(function(err){
+            //add something here so that it is clear that the camera does not have access
+            console.log("You did not give access to the camera!",err);
        });
         pictureButton.addEventListener('click', () => {
             if(!this.state.pictureTaken && isVideoPlaying){
+                var r = new FileReader();
                 this.takePictureClicked();
                 canvas.style.display = "block";
                 video.style.display = "none";
                 context.drawImage(video,0,0);
+                
                 video.srcObject.getVideoTracks().forEach(track => track.stop());
                 pictureButton.style.display = "none";
                 savePictureButton.style.display = "block";
@@ -62,6 +67,7 @@ class Camera extends Component {
         });
 
         cancelButton.addEventListener('click', () => {
+            console.log("isVideoPlaying = " + isVideoPlaying);
            if(isVideoPlaying){
             video.srcObject.getVideoTracks().forEach(track => track.stop());
             isVideoPlaying = false;
