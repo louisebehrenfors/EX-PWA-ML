@@ -74,7 +74,8 @@ class App extends Component {
         </header>
         <style>{'body { background-color: #499272; }'}</style>
         <div className = "App-content">  
-          {this.state.pictureOk ?   <ChosenAppScreen cancelPress={this.cancelPressed} imageFromParent = {this.state.filechosen}  /> : <StartAppScreen onChangeScreen = {this.changeScreen} />   }
+          {this.state.pictureOk ?   <ChosenAppScreen cancelPress={this.cancelPressed} imageFromParent = {this.state.filechosen}  /> : 
+          <StartAppScreen onChangeScreen = {this.changeScreen} />   }
         </div>
         {/* <div className = "App-Add-2-HomeScreen">
           <div className="modal-content">
