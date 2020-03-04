@@ -31,6 +31,10 @@ class Camera extends Component {
         alert('Image saved!');
         this.setState({cameraOpen : false});
     }
+    stopVideoStream(videoStream) {
+        videoStream = document.getElementById('cameraStream');
+        videoStream.srcObject.getVideoTracks().forEach(track => track.stop());
+    }
     playVideo() {
        //plays a video stream and takes a picture or cancels the operation depending on what button was pressed 
        const video = document.getElementById('cameraStream');
@@ -49,13 +53,16 @@ class Camera extends Component {
        });
         pictureButton.addEventListener('click', () => {
             if(!this.state.pictureTaken && isVideoPlaying){
-                var r = new FileReader();
+                console.log("video width = " + video.videoWidth + " video height = " + video.videoHeight);
+                var scale = Math.min(canvas.width / video.videoWidth, canvas.height / video.videoHeight);;
+                var x = (canvas.width / 2) - (video.videoWidth / 2) * scale;
+                var y = (canvas.height / 2) - (video.videoHeight / 2) * scale;
+                console.log("scale = " + scale);
                 this.takePictureClicked();
                 canvas.style.display = "block";
                 video.style.display = "none";
-                context.drawImage(video,0,0);
-                
-                video.srcObject.getVideoTracks().forEach(track => track.stop());
+                context.drawImage(video,x,y,video.videoWidth,video.videoHeight);
+                this.stopVideoStream(video)
                 pictureButton.style.display = "none";
                 savePictureButton.style.display = "block";
             } 
@@ -69,7 +76,7 @@ class Camera extends Component {
         cancelButton.addEventListener('click', () => {
             console.log("isVideoPlaying = " + isVideoPlaying);
            if(isVideoPlaying){
-            video.srcObject.getVideoTracks().forEach(track => track.stop());
+            this.stopVideoStream(video)
             isVideoPlaying = false;
            }
 
