@@ -33,14 +33,14 @@ class Camera extends Component {
     }
     stopVideoStream(videoStream) {
         videoStream = document.getElementById('cameraStream');
+        console.log("Here");
         videoStream.srcObject.getVideoTracks().forEach(track => track.stop());
     }
     playVideo() {
         //plays a video stream and takes a picture or cancels the operation depending on what button was pressed 
         const video = document.getElementById('cameraStream');
         var videoConstraints = {
-            video: true,
-            facingMode: "environment"
+            video: {facingMode: "environment"} 
         };
         var isVideoPlaying = false;
         const cancelButton = document.getElementById('cancel');
@@ -56,7 +56,7 @@ class Camera extends Component {
              console.log("You did not give access to the camera!",err);
         });
          pictureButton.addEventListener('click', () => {
-             if(!this.state.pictureTaken && isVideoPlaying){
+             if(!this.state.pictureTaken && isVideoPlaying) {
                  console.log("video width = " + video.videoWidth + " video height = " + video.videoHeight);
                  var scale = Math.min(canvas.width / video.videoWidth, canvas.height / video.videoHeight);;
                  var x = (canvas.width / 2) - (video.videoWidth / 2) * scale;
@@ -66,7 +66,7 @@ class Camera extends Component {
                  canvas.style.display = "block";
                  video.style.display = "none";
                  context.drawImage(video,x,y,video.videoWidth,video.videoHeight);
-                 this.stopVideoStream(video)
+                 this.stopVideoStream(video);
                  pictureButton.style.display = "none";
                  savePictureButton.style.display = "block";
              } 
