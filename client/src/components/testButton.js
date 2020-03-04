@@ -33,18 +33,7 @@ class testButton extends Component{
         let files = event.target.files[0];
         var fileReader = new FileReader(); 
         fileReader.readAsDataURL(files);
-
-        // this.setState({
-        //     test: 'hallo!'
-        // });
-        //this.setState({file: 'fileReader.result'});
         files = URL.createObjectURL(files);
-        //this.props.parentCallBack("Hallo");
-        // this.setState({file: window.URL.createObjectURL(files)}); 
-        // this.setState(() => ({ 
-        //     file: files,
-        //     fileSelected: true 
-        // }));
         this.callBackParent(files);
        }
     }
@@ -63,9 +52,13 @@ class testButton extends Component{
                 onClick={this._handleButtonClick}
                 >
                 <h2>Ladda upp en bild</h2>
-                <input type="file" id="file" ref="fileUploader" onChange={this.handleChange}/>
+                <input 
+                    type="file" 
+                    id="file" 
+                    ref="fileUploader" 
+                    accept="image/*" 
+                    onChange={this.handleChange}/>
                 </button>   
-                {/* <img src = {this.state.file} /> */}
             </div>
         ); 
     }
