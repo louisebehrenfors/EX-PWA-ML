@@ -1,4 +1,4 @@
-import React, { useState, Component } from 'react';
+import React, {Component } from 'react';
 
 import './testButton.css';
 
@@ -31,11 +31,11 @@ class testButton extends Component{
         });
         
         let files = event.target.files[0];
+        let files_to_string = event.target.files[0];
         console.log(files);
         var fileReader = new FileReader(); 
-        //fileReader.readAsDataURL(files);
-        //fileReader.readAsArrayBuffer(files);
-        //files = URL.createObjectURL(files);
+        fileReader.readAsDataURL(files_to_string);
+        files_to_string = URL.createObjectURL(files_to_string);
        
         this.callBackParent(files);
        }
