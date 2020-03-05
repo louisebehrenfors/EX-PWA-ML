@@ -15,6 +15,11 @@ class ChosenAppScreen extends Component {
       }
     componentDidMount = () => {
       var self = this; 
+      var imgSize = this.props.imageFromParent.size;
+      var sizeLimit = 4*1048576;
+      if(imgSize > sizeLimit)
+        alert('Filen är för stor');
+      else {
          $.ajax({
             type: "POST",
             url: "",
@@ -37,6 +42,7 @@ class ChosenAppScreen extends Component {
          }).fail(function (xhr, status, err) {
             alert(err,status,xhr);
          });
+      }
     }
 
     render() {
