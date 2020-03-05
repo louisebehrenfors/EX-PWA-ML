@@ -31,9 +31,12 @@ class testButton extends Component{
         });
         
         let files = event.target.files[0];
+        console.log(files);
         var fileReader = new FileReader(); 
-        fileReader.readAsDataURL(files);
-        files = URL.createObjectURL(files);
+        //fileReader.readAsDataURL(files);
+        //fileReader.readAsArrayBuffer(files);
+        //files = URL.createObjectURL(files);
+       
         this.callBackParent(files);
        }
     }
