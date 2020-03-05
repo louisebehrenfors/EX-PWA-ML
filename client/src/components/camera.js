@@ -36,6 +36,9 @@ class Camera extends Component {
         console.log("Here");
         videoStream.srcObject.getVideoTracks().forEach(track => track.stop());
     }
+    URLtoBlob(URL) {
+        fetch(URL).then(res => res.blob()).then(blob => console.log(blob));
+    }
     playVideo() {
         //plays a video stream and takes a picture or cancels the operation depending on what button was pressed 
         const video = document.getElementById('cameraStream');
@@ -58,7 +61,7 @@ class Camera extends Component {
          pictureButton.addEventListener('click', () => {
              if(!this.state.pictureTaken && isVideoPlaying) {
                  console.log("video width = " + video.videoWidth + " video height = " + video.videoHeight);
-                 var scale = Math.min(canvas.width / video.videoWidth, canvas.height / video.videoHeight);;
+                 var scale = Math.min(canvas.width / video.videoWidth, canvas.height / video.videoHeight);
                  var x = (canvas.width / 2) - (video.videoWidth / 2) * scale;
                  var y = (canvas.height / 2) - (video.videoHeight / 2) * scale;
                  console.log("scale = " + scale);
@@ -66,6 +69,10 @@ class Camera extends Component {
                  canvas.style.display = "block";
                  video.style.display = "none";
                  context.drawImage(video,x,y,video.videoWidth,video.videoHeight);
+                 var imgURL = canvas.toDataURL();
+                 console.log("imageURL = " + imgURL);
+                 console.log("imgurl type = ",typeof imgURL);
+                 this.URLtoBlob(imgURL);
                  this.stopVideoStream(video);
                  pictureButton.style.display = "none";
                  savePictureButton.style.display = "block";
