@@ -1,13 +1,13 @@
 import React, { Component } from 'react';
 const $ = window.$;
-const predictionKey = "";
+const predictionKey = ""; 
 
 
 class ChosenAppScreen extends Component {
 
     componentDidMount = () => {
  
-      
+        console.log("this.props.imageFromParent = ",typeof this.props.imageFromParent);
          $.ajax({
             type: "POST",
             url: "",
