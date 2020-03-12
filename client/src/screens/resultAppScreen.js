@@ -3,7 +3,7 @@ import logo1 from './logo1.svg';
 import'./resultAppScreen.css'
 
 const $ = window.$;
-const predictionKey = "e27c1d1d6b324f8b8a1d8b9824f906c1";
+const predictionKey = "";
 
 
 class ChosenAppScreen extends Component {
@@ -21,7 +21,7 @@ class ChosenAppScreen extends Component {
       var self = this; 
          $.ajax({
             type: "POST",
-            url: "https://customvision-pwa.cognitiveservices.azure.com/customvision/v3.0/Prediction/c77bd6b7-d349-4eeb-b1db-3ea5e09cdafc/classify/iterations/TestIteration2/image",
+            url: "",
             processData: false,
             data: this.props.imageFromParent,
             headers: {
