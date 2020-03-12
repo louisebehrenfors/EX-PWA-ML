@@ -50,7 +50,7 @@ class App extends Component {
     if(this.state.screen === "chosen"){
       content = <ChosenAppScreen chosenPress={this.goToResult} cancelPress={this.cancelPressed} imageFromParent = {this.state.filechosen} />
     } else if(this.state.screen === "result") {
-      content = <ResultAppScreen imageFromParent = {this.state.filechosen}/>
+      content = <ResultAppScreen cancelPress={this.cancelPressed} imageFromParent = {this.state.filechosen}/>
     }else content = <StartAppScreen onChangeScreen = {this.changeScreen} /> 
     
     return (

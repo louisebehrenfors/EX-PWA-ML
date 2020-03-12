@@ -9,7 +9,6 @@ class testButton extends Component{
         this._handleButtonClick = this._handleButtonClick.bind(this);
         this.state = {
             file : '',
-            test : null,
             fileSelected: false
         }
         this.handleChange = this.handleChange.bind(this); 
@@ -26,25 +25,12 @@ class testButton extends Component{
            this.setState(() => ({ file: null, fileSelected:false }));
        }
        else{
-        this.setState({
-            test: event.target.files[0]
-        });
-        
         let files = event.target.files[0];
-        let files_to_string = event.target.files[0];
-        console.log(files);
-        var fileReader = new FileReader(); 
-        fileReader.readAsDataURL(files_to_string);
-        files_to_string = URL.createObjectURL(files_to_string);
-       
         this.callBackParent(files);
        }
     }
 
     callBackParent = sendData => {
-        this.setState({
-            file: sendData
-        });
         this.props.parentCallBack(sendData);
     }
 
@@ -69,3 +55,12 @@ class testButton extends Component{
 }
 
 export default testButton;
+
+/*         let files_to_string = event.target.files[0];
+        var fileReader = new FileReader(); 
+        fileReader.readAsDataURL(files_to_string);
+        files_to_string = URL.createObjectURL(files_to_string); */
+
+        /*         this.setState({
+            file: sendData
+        }); */
