@@ -28,6 +28,10 @@
 .App-content{
   height: auto;
   padding: 10px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .App-Add-2-HomeScreen{
@@ -65,4 +69,20 @@
 @keyframes App-logo-spin {
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
+}
+
+h1{
+  font-family: 'Roboto', sans-serif;
+  
+  font-weight: bold;
+}
+h2{
+  font-family: 'Roboto', sans-serif;
+}
+h3{
+  font-family: 'Roboto', sans-serif;
+}
+img{
+  image-orientation: from-image;
+  
 }

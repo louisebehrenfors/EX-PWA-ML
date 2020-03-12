@@ -3,7 +3,7 @@ import logo1 from './logo1.svg';
 import'./resultAppScreen.css'
 
 const $ = window.$;
-const predictionKey = ""; 
+const predictionKey = "";
 
 
 class ChosenAppScreen extends Component {
@@ -19,11 +19,7 @@ class ChosenAppScreen extends Component {
       }
     componentDidMount = () => {
       var self = this; 
-      var imgSize = this.props.imageFromParent.size;
-      var sizeLimit = 4*1048576;
-      if(imgSize > sizeLimit)
-        alert('Filen är för stor');
-      else {
+      var prop; 
          $.ajax({
             type: "POST",
             url: "",
@@ -36,18 +32,17 @@ class ChosenAppScreen extends Component {
          }).done(function (data) {
              console.log(data); 
              console.log(data.predictions[0].tagName);
-
+             prop = (data.predictions[0].probability * 100).toFixed(0) +"%";
               self.setState({
                   tagName: data.predictions[0].tagName,
                   ajaxComplete: true,
-                  probability:data.predictions[0].probability
+                  probability: prop
               });
 
 
          }).fail(function (xhr, status, err) {
             alert(err,status,xhr);
          });
-      }
     }
 
     render() {
