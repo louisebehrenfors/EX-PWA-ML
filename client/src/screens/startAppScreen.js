@@ -30,7 +30,7 @@ class StartScreen extends Component {
     render() {
         return(
             <div className="StartScreen">
-                {this.state.cameraOpen ? <Camera cancelClicked={this.setCameraState} displayCamera={this.setCameraState}/> :  <Buttons takePhotoClicked={this.setCameraState}/>}
+                {this.state.cameraOpen ? <Camera cancelClicked={this.setCameraState} displayCamera={this.setCameraState} parentCallBack = {this.callbackFunction}/> :  <Buttons takePhotoClicked={this.setCameraState}/>}
                 <ButtonTest parentCallBack = {this.callbackFunction}/>
                 <img src = {this.state.fileChosen} />
             </div>
