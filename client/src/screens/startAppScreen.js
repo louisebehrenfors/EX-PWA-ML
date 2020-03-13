@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 import Buttons from '../components/buttons.js';
 import Camera from '../components/camera.js';
 import ButtonTest from '../components/fileHandeler';
-import './startAppScreen.css';
+
 
 class StartScreen extends Component {
     constructor () {
@@ -19,7 +19,6 @@ class StartScreen extends Component {
       setCameraState(cameraState){
         //sets camera state according to what element was clicked
         this.setState({cameraOpen: cameraState});
-        console.log(this.state.cameraOpen);
       }
 
       callbackFunction = (childData) => {

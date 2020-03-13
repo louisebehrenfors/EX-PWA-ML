@@ -3,8 +3,10 @@ import logo1 from './logo1.svg';
 import './App.css';
 import StartAppScreen from './screens/startAppScreen';
 import ChosenAppScreen from './screens/chosenAppScreen';
-import AddToHomescreen from 'react-add-to-homescreen';
+import FooterMenu from './components/footerMenu'
 import ResultAppScreen from './screens/resultAppScreen'
+import AddToHomescreen from 'react-add-to-homescreen';
+
 
 class App extends Component {
   constructor () {
@@ -15,6 +17,8 @@ class App extends Component {
     };
     this.changeScreen = this.changeScreen.bind(this); 
     this.goToResult = this.goToResult.bind(this); 
+    this.handleFooterClicked = this.handleFooterClicked.bind(this);
+
   }
 
   changeScreen = childData => {
@@ -45,6 +49,13 @@ class App extends Component {
       2. Tap on "Add to Home Screen" button`);
   };
 
+  handleFooterClicked = fromChild => {
+    this.setState({
+      screen: fromChild
+    });
+    console.log(fromChild);
+  }
+
   render() {
     let content; 
     if(this.state.screen === "chosen"){
@@ -63,11 +74,11 @@ class App extends Component {
         <div className = "App-content"> 
         {content}
         </div>
-          <AddToHomescreen onAddToHomescreenClick={this.handleAddToHomescreenClick} />
-
+           <AddToHomescreen onAddToHomescreenClick={this.handleAddToHomescreenClick} /> 
+        
         <div className="App-footer">
-          <p> Recycle Me PWA</p>
-        </div>
+          <FooterMenu onFooterClicked = {this.handleFooterClicked} />
+        </div> 
       </div>
     );
   }
