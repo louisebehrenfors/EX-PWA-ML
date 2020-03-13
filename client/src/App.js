@@ -7,6 +7,7 @@ import Maps from './components/maps';
 import FooterMenu from './components/footerMenu'
 import ResultAppScreen from './screens/resultAppScreen'
 import InfoAppScreen from './screens/infoAppScreen'
+import footerMenu from './components/footerMenu';
 
 class App extends Component {
   constructor () {
@@ -77,10 +78,9 @@ class App extends Component {
         <style>{'body { background-color: #499272; }'}</style>
         <div className = "App-content"> 
         {content}
-        <button onClick = {this.openMapScreen}>PRESS ME</button>
         </div>
         <div className="App-footer">
-          <p> Recycle Me PWA</p>
+        <FooterMenu onFooterClicked = {this.handleFooterClicked}/>
         </div>
       </div>
     );
