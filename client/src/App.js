@@ -3,6 +3,7 @@ import logo1 from './logo1.svg';
 import './App.css';
 import StartAppScreen from './screens/startAppScreen';
 import ChosenAppScreen from './screens/chosenAppScreen';
+import Maps from './components/maps';
 import FooterMenu from './components/footerMenu'
 import ResultAppScreen from './screens/resultAppScreen'
 import AddToHomescreen from 'react-add-to-homescreen';
@@ -33,6 +34,11 @@ class App extends Component {
       screen:"result"
     });
   }
+  openMapScreen = () =>  {
+    this.setState({
+      screen: "maps"
+    });
+  }
 
   cancelPressed = () => {
     this.setState({
@@ -48,6 +54,7 @@ class App extends Component {
       2. Tap on "Add to Home Screen" button`);
   };
 
+
   handleFooterClicked = fromChild => {
     this.setState({
       screen: fromChild
@@ -60,8 +67,10 @@ class App extends Component {
     if(this.state.screen === "chosen"){
       content = <ChosenAppScreen chosenPress={this.goToResult} cancelPress={this.cancelPressed} imageFromParent = {this.state.filechosen} />
     } else if(this.state.screen === "result") {
-      content = <ResultAppScreen cancelPress={this.cancelPressed} imageFromParent = {this.state.filechosen}/>
-    }else content = <StartAppScreen onChangeScreen = {this.changeScreen} /> 
+        content = <ResultAppScreen cancelPress={this.cancelPressed} imageFromParent = {this.state.filechosen}/>
+      } else if(this.state.screen === "maps") {
+        content = <Maps mapShown = {this.openMapScreen} />;
+      } else content = <StartAppScreen onChangeScreen = {this.changeScreen} /> 
     
     return (
       <div className="App">
@@ -72,11 +81,10 @@ class App extends Component {
         <style>{'body { background-color: #499272; }'}</style>
         <div className = "App-content"> 
         {content}
+        <button onClick = {this.openMapScreen}>PRESS ME</button>
         </div>
-        <Maps/>
         <div className="App-footer">
           <p> Recycle Me PWA</p>
-         
         </div>
       </div>
     );
