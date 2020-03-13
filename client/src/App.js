@@ -8,6 +8,7 @@ import './App.css';
 // import ButtonTest from './components/testButton';
 import StartAppScreen from './screens/startAppScreen';
 import ChosenAppScreen from './screens/chosenAppScreen';
+import Maps from './components/maps';
 
 class App extends Component {
   constructor () {
@@ -17,7 +18,6 @@ class App extends Component {
     };
     this.changeScreen = this.changeScreen.bind(this); 
   }
-
   changeScreen = childData => {
     this.setState({
       pictureOk: true,
@@ -31,7 +31,7 @@ class App extends Component {
       filechosen: ''
     }); 
   }
-
+  
   render() {
     return (
     
@@ -45,8 +45,10 @@ class App extends Component {
           {this.state.pictureOk ?   <ChosenAppScreen cancelPress={this.cancelPressed} imageFromParent = {this.state.filechosen}  /> : 
           <StartAppScreen onChangeScreen = {this.changeScreen} />   }
         </div>
+        <Maps/>
         <div className="App-footer">
           <p> Recycle Me PWA</p>
+         
         </div>
       </div>
     );
