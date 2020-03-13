@@ -10,5 +10,6 @@
   }
 .resultContainer{
     height: auto;
+    padding-bottom: 50px;
     margin-bottom: 50px;
 }

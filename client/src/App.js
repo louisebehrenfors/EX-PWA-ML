@@ -5,8 +5,7 @@ import StartAppScreen from './screens/startAppScreen';
 import ChosenAppScreen from './screens/chosenAppScreen';
 import FooterMenu from './components/footerMenu'
 import ResultAppScreen from './screens/resultAppScreen'
-import AddToHomescreen from 'react-add-to-homescreen';
-
+import InfoAppScreen from './screens/infoAppScreen'
 
 class App extends Component {
   constructor () {
@@ -43,17 +42,10 @@ class App extends Component {
     }); 
   }
 
-  handleAddToHomescreenClick = () => {
-    alert(`
-      1. Open Share menu
-      2. Tap on "Add to Home Screen" button`);
-  };
-
   handleFooterClicked = fromChild => {
     this.setState({
       screen: fromChild
     });
-    console.log(fromChild);
   }
 
   render() {
@@ -62,7 +54,8 @@ class App extends Component {
       content = <ChosenAppScreen chosenPress={this.goToResult} cancelPress={this.cancelPressed} imageFromParent = {this.state.filechosen} />
     } else if(this.state.screen === "result") {
       content = <ResultAppScreen cancelPress={this.cancelPressed} imageFromParent = {this.state.filechosen}/>
-    }else content = <StartAppScreen onChangeScreen = {this.changeScreen} /> 
+    } else if (this.state.screen === "info") {content = <InfoAppScreen/>} 
+    else content = <StartAppScreen onChangeScreen = {this.changeScreen} /> 
     
     return (
       <div className="App">
@@ -72,10 +65,8 @@ class App extends Component {
         </header>
         <style>{'body { background-color: #499272; }'}</style>
         <div className = "App-content"> 
-        {content}
+          {content}
         </div>
-           <AddToHomescreen onAddToHomescreenClick={this.handleAddToHomescreenClick} /> 
-        
         <div className="App-footer">
           <FooterMenu onFooterClicked = {this.handleFooterClicked} />
         </div> 
