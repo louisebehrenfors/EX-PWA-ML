@@ -1,5 +1,8 @@
 .App {
   text-align: center;
+  flex-flow: column;
+  height: 100vh;
+  display: flex;
 }
 
 .App-logo {
@@ -26,12 +29,14 @@
 }
 
 .App-content{
+  flex-grow: 1;
   height: auto;
   padding: 10px;
   margin: 0 auto;
   display: flex;
-  justify-content: center;
   align-items: center;
+  justify-content: center;
+
 }
 
 .App-Add-2-HomeScreen{
