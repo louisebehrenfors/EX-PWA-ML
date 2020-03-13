@@ -8,32 +8,24 @@ class footerMenu extends Component {
     constructor () {
         super();
         this.state = {
-          whichButtonPressed  : ""
+          whichButtonPressed: ""
         };
         this.homeButtonPressed = this.homeButtonPressed.bind(this);
         this.infoButtonPressed = this.infoButtonPressed.bind(this);
         this.mapsButtonPressed = this.mapsButtonPressed.bind(this);
       }
     homeButtonPressed = () => {
-        alert("home")
-        this.setState({
-            whichButtonPressed: "homeButton"
-        });
-        this.props.onFooterClicked(this.whichButtonPressed);
+        var x = "start"
+        this.props.onFooterClicked(x);
     }
 
     mapsButtonPressed = () => {
-        alert("maps")
-        this.setState({
-            whichButtonPressed: "mapsButton"
-        });
-        this.props.onFooterClicked(this.whichButtonPressed);
+        var x = "maps"
+        this.props.onFooterClicked(x);
     }
     infoButtonPressed = () => {
-        this.setState({
-            whichButtonPressed: "infoButton"
-        });
-        this.props.onFooterClicked(this.whichButtonPressed);
+       var x = "info"
+        this.props.onFooterClicked(x);
     }
 
     render() {
