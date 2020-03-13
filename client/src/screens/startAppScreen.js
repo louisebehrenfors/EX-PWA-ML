@@ -2,8 +2,8 @@ import React, { Component } from 'react';
 
 import Buttons from '../components/buttons.js';
 import Camera from '../components/camera.js';
-import ButtonTest from '../components/testButton';
-import './startAppScreen.css';
+import ButtonTest from '../components/fileHandeler';
+
 
 class StartScreen extends Component {
     constructor () {
@@ -19,7 +19,6 @@ class StartScreen extends Component {
       setCameraState(cameraState){
         //sets camera state according to what element was clicked
         this.setState({cameraOpen: cameraState});
-        console.log(this.state.cameraOpen);
       }
 
       callbackFunction = (childData) => {
@@ -30,7 +29,7 @@ class StartScreen extends Component {
     render() {
         return(
             <div className="StartScreen">
-                {this.state.cameraOpen ? <Camera cancelClicked={this.setCameraState} displayCamera={this.setCameraState}/> :  <Buttons takePhotoClicked={this.setCameraState}/>}
+                {this.state.cameraOpen ? <Camera cancelClicked={this.setCameraState} displayCamera={this.setCameraState} parentCallBack = {this.callbackFunction}/> :  <Buttons takePhotoClicked={this.setCameraState}/>}
                 <ButtonTest parentCallBack = {this.callbackFunction}/>
                 <img src = {this.state.fileChosen} />
             </div>

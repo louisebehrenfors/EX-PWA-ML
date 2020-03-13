@@ -1,4 +1,4 @@
-import React, { useState, Component } from 'react';
+import React, {Component } from 'react';
 
 import './testButton.css';
 
@@ -9,7 +9,6 @@ class testButton extends Component{
         this._handleButtonClick = this._handleButtonClick.bind(this);
         this.state = {
             file : '',
-            test : null,
             fileSelected: false
         }
         this.handleChange = this.handleChange.bind(this); 
@@ -26,33 +25,12 @@ class testButton extends Component{
            this.setState(() => ({ file: null, fileSelected:false }));
        }
        else{
-        this.setState({
-            test: event.target.files[0]
-        });
-        
         let files = event.target.files[0];
-        var fileReader = new FileReader(); 
-        fileReader.readAsDataURL(files);
-
-        // this.setState({
-        //     test: 'hallo!'
-        // });
-        //this.setState({file: 'fileReader.result'});
-        files = URL.createObjectURL(files);
-        //this.props.parentCallBack("Hallo");
-        // this.setState({file: window.URL.createObjectURL(files)}); 
-        // this.setState(() => ({ 
-        //     file: files,
-        //     fileSelected: true 
-        // }));
         this.callBackParent(files);
        }
     }
 
     callBackParent = sendData => {
-        this.setState({
-            file: sendData
-        });
         this.props.parentCallBack(sendData);
     }
 
@@ -63,9 +41,13 @@ class testButton extends Component{
                 onClick={this._handleButtonClick}
                 >
                 <h2>Ladda upp en bild</h2>
-                <input type="file" id="file" ref="fileUploader" onChange={this.handleChange}/>
+                <input 
+                    type="file" 
+                    id="file" 
+                    ref="fileUploader" 
+                    accept="image/*" 
+                    onChange={this.handleChange}/>
                 </button>   
-                {/* <img src = {this.state.file} /> */}
             </div>
         ); 
     }
@@ -73,3 +55,12 @@ class testButton extends Component{
 }
 
 export default testButton;
+
+/*         let files_to_string = event.target.files[0];
+        var fileReader = new FileReader(); 
+        fileReader.readAsDataURL(files_to_string);
+        files_to_string = URL.createObjectURL(files_to_string); */
+
+        /*         this.setState({
+            file: sendData
+        }); */

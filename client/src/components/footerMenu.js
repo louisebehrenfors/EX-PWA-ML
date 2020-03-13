@@ -1,0 +1,56 @@
+import React, { Component } from 'react';
+import './footerMenu.css'
+import button1image from './homeimage.svg'
+import button2image from './mapsButtonImage.svg'
+import button3image from './infoButtonImage.svg'
+
+class footerMenu extends Component {
+    constructor () {
+        super();
+        this.state = {
+          whichButtonPressed  : ""
+        };
+        this.homeButtonPressed = this.homeButtonPressed.bind(this);
+        this.infoButtonPressed = this.infoButtonPressed.bind(this);
+        this.mapsButtonPressed = this.mapsButtonPressed.bind(this);
+      }
+    homeButtonPressed = () => {
+        alert("home")
+        this.setState({
+            whichButtonPressed: "homeButton"
+        });
+        this.props.onFooterClicked(this.whichButtonPressed);
+    }
+
+    mapsButtonPressed = () => {
+        alert("maps")
+        this.setState({
+            whichButtonPressed: "mapsButton"
+        });
+        this.props.onFooterClicked(this.whichButtonPressed);
+    }
+    infoButtonPressed = () => {
+        this.setState({
+            whichButtonPressed: "infoButton"
+        });
+        this.props.onFooterClicked(this.whichButtonPressed);
+    }
+
+    render() {
+        return(
+            <div className = "ButtonsToFooter">
+                <button onClick={this.homeButtonPressed} className="footerButton" > 
+                    <img className="buttonImages" src={button1image}/>
+                </button>
+                <button onClick={this.mapsButtonPressed} className="footerButton"> 
+                    <img className="buttonImages" src={button2image}/>
+                </button>
+                <button onClick={this.infoButtonPressed} className="footerButton">
+                    <img className="buttonImages" src={button3image}/>
+                </button>
+            </div>
+        ); 
+    }
+}
+
+export default footerMenu; 

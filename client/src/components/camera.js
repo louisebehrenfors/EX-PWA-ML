@@ -5,9 +5,10 @@ class Camera extends Component {
     constructor (props) {
         super(props);
         //cameraOpen states if the camera is open or closed, pictureTaken if a picture was taken or not, view decides what text to put on the button
-        this.state = { cameraOpen: false, pictureTaken: false};
+        this.state = { cameraOpen: false, pictureTaken: false, file: ''};
         this.cancelClicked = this.cancelClicked.bind(this);
         this.playVideo = this.playVideo.bind(this);
+        this.callbackFile = this.callbackFile.bind(this);
     }
     cancelClicked () {
         //set state, was cancel clicked
@@ -28,7 +29,6 @@ class Camera extends Component {
         });
     }
     savePicture() {
-        alert('Image saved!');
         this.setState({cameraOpen : false});
     }
     stopVideoStream(videoStream) {
@@ -37,7 +37,7 @@ class Camera extends Component {
         videoStream.srcObject.getVideoTracks().forEach(track => track.stop());
     }
     URLtoBlob(URL) {
-        fetch(URL).then(res => res.blob()).then(blob => console.log(blob));
+        fetch(URL).then(res => res.blob()).then(blob => this.callbackFile(blob));
     }
     playVideo() {
         //plays a video stream and takes a picture or cancels the operation depending on what button was pressed 
@@ -79,9 +79,12 @@ class Camera extends Component {
              } 
          });
 
-         savePictureButton.addEventListener('click', () => {
-             this.savePicture();
-
+        savePictureButton.addEventListener('click', () => {
+            this.savePicture();
+            var imgURL = canvas.toDataURL();
+            console.log("imageURL = " + imgURL);
+            console.log("imgurl type = ",typeof imgURL);
+            this.URLtoBlob(imgURL);
          });
 
          cancelButton.addEventListener('click', () => {
@@ -97,6 +100,14 @@ class Camera extends Component {
     }
 componentDidMount(){
     this.playVideo();
+}
+
+callbackFile = sendData =>{
+    this.setState({
+        file: sendData
+    });
+    console.log("sendData = "+ sendData);
+    this.props.parentCallBack(sendData);
 }
     
     render () {
