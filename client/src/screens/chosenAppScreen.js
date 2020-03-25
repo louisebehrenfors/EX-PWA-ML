@@ -4,7 +4,6 @@ class ChosenAppScreen extends Component {
 
    
     render() {
-
         var imageAsURL = URL.createObjectURL(this.props.imageFromParent);
         return(
         <div className="photoChosed">

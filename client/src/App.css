@@ -10,12 +10,19 @@
   height: 80px;
 }
 
+
+.App-Image-Container{
+  margin: auto;
+}
 .App-header {
   background-color: #a3d6bf;
-  height: 30vh;
+  height: 25vh;
   padding: 20px;
   color: white;
-
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  display: flex;
 }
 
 .App-title {
@@ -34,9 +41,9 @@
   padding: 10px;
   margin: 0 auto;
   display: flex;
-  
+  overflow: visible;
   justify-content: center;
-
+  padding-bottom: 70px ;
 }
 
 .App-Add-2-HomeScreen{
@@ -65,6 +72,7 @@
   position: fixed;
   left: 0;
   bottom: 0;
+  margin-top: 50px;
   font-size: 10px;
   width: 100%;
   background-color: #003a21;

@@ -60,8 +60,10 @@ class App extends Component {
     return (
       <div className="App">
         <header className="App-header">
-          <img src={logo1} className="App-logo" alt="logo" />
-          <h1 className="App-title">Recycle Me!</h1>
+          <div className="App-Image-Container">
+            <img src={logo1} className="App-logo" alt="logo" />
+            <h1 className="App-title">Recycle Me!</h1>
+          </div>
         </header>
         <style>{'body { background-color: #499272; }'}</style>
         <div className = "App-content"> 
