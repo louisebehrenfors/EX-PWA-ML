@@ -1,6 +1,7 @@
-import React, {Component } from 'react';
+import React, { useState, Component } from 'react';
 
 import './testButton.css';
+import EXIF from 'exif-js';
 
 class testButton extends Component{
    
@@ -9,6 +10,7 @@ class testButton extends Component{
         this._handleButtonClick = this._handleButtonClick.bind(this);
         this.state = {
             file : '',
+            test : null,
             fileSelected: false
         }
         this.handleChange = this.handleChange.bind(this); 
@@ -16,6 +18,34 @@ class testButton extends Component{
       }
       _handleButtonClick = (e) => {
        this.refs.fileUploader.click();
+    }
+    checkOrientation(file) {
+        //checks EXIF orientation data of jpg files and changes it to the correct one 
+            EXIF.getData(file, function() {
+                var orientation = EXIF.getTag(this, "Orientation");
+                if(orientation != 1){
+                    //TODO: fix orientation
+                    switch(orientation) {
+                        case 2:
+                            // flip vertically
+                        case 3:
+                            // rotate 180 deg
+                        case 4:
+                            // flip horizontally  
+                        case 5:
+                            // flip  
+                        case 6:
+                            // rotate 90 deg
+                        case 7:
+                            //flip
+                        case 8:
+                            //rotate -90 deg
+
+                    }
+                    console.log("EXIF information = "+ EXIF.pretty(this));
+                }
+                else console.log("Correct orientation");
+            });
     }
 
     handleChange(event){
@@ -25,12 +55,24 @@ class testButton extends Component{
            this.setState(() => ({ file: null, fileSelected:false }));
        }
        else{
+        this.setState({
+            test: event.target.files[0]
+        });
+
         let files = event.target.files[0];
+        var fp = target.value;
+        var fe = fp.slice(fp.length - 3);
+        if(fe == "jpg")
+            this.checkOrientation(files);
+
         this.callBackParent(files);
        }
     }
 
     callBackParent = sendData => {
+        this.setState({
+            file: sendData
+        });
         this.props.parentCallBack(sendData);
     }
 
@@ -55,12 +97,3 @@ class testButton extends Component{
 }
 
 export default testButton;
-
-/*         let files_to_string = event.target.files[0];
-        var fileReader = new FileReader(); 
-        fileReader.readAsDataURL(files_to_string);
-        files_to_string = URL.createObjectURL(files_to_string); */
-
-        /*         this.setState({
-            file: sendData
-        }); */

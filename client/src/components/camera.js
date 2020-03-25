@@ -69,6 +69,10 @@ class Camera extends Component {
                  canvas.style.display = "block";
                  video.style.display = "none";
                  context.drawImage(video,x,y,video.videoWidth,video.videoHeight);
+                 var imgURL = canvas.toDataURL();
+                 console.log("imageURL = " + imgURL);
+                 console.log("imgurl type = ",typeof imgURL);
+                 this.URLtoBlob(imgURL);
                  this.stopVideoStream(video);
                  pictureButton.style.display = "none";
                  savePictureButton.style.display = "block";

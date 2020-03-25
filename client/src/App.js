@@ -3,9 +3,11 @@ import logo1 from './logo1.svg';
 import './App.css';
 import StartAppScreen from './screens/startAppScreen';
 import ChosenAppScreen from './screens/chosenAppScreen';
+import Maps from './components/maps';
 import FooterMenu from './components/footerMenu'
 import ResultAppScreen from './screens/resultAppScreen'
 import InfoAppScreen from './screens/infoAppScreen'
+import footerMenu from './components/footerMenu';
 
 class App extends Component {
   constructor () {
@@ -19,7 +21,6 @@ class App extends Component {
     this.handleFooterClicked = this.handleFooterClicked.bind(this);
 
   }
-
   changeScreen = childData => {
     this.setState({
       screen:"chosen",
@@ -33,6 +34,11 @@ class App extends Component {
       screen:"result"
     });
   }
+  openMapScreen = () =>  {
+    this.setState({
+      screen: "maps"
+    });
+  }
 
   cancelPressed = () => {
     this.setState({
@@ -42,6 +48,13 @@ class App extends Component {
     }); 
   }
 
+  handleAddToHomescreenClick = () => {
+    alert(`
+      1. Open Share menu
+      2. Tap on "Add to Home Screen" button`);
+  };
+
+
   handleFooterClicked = fromChild => {
     this.setState({
       screen: fromChild
@@ -50,11 +63,10 @@ class App extends Component {
 
   render() {
     let content; 
-    if(this.state.screen === "chosen"){
-      content = <ChosenAppScreen chosenPress={this.goToResult} cancelPress={this.cancelPressed} imageFromParent = {this.state.filechosen} />
-    } else if(this.state.screen === "result") {
-      content = <ResultAppScreen cancelPress={this.cancelPressed} imageFromParent = {this.state.filechosen}/>
-    } else if (this.state.screen === "info") {content = <InfoAppScreen/>} 
+    if(this.state.screen === "chosen"){ content = <ChosenAppScreen chosenPress={this.goToResult} cancelPress={this.cancelPressed} imageFromParent = {this.state.filechosen} />} 
+    else if(this.state.screen === "result") { content = <ResultAppScreen cancelPress={this.cancelPressed} imageFromParent = {this.state.filechosen}/>} 
+    else if(this.state.screen === "maps") { content = <Maps mapShown = {this.openMapScreen} />; } 
+    else if (this.state.screen === "info") {content = <InfoAppScreen/>} 
     else content = <StartAppScreen onChangeScreen = {this.changeScreen} /> 
     
     return (
@@ -67,11 +79,11 @@ class App extends Component {
         </header>
         <style>{'body { background-color: #499272; }'}</style>
         <div className = "App-content"> 
-          {content}
+        {content}
         </div>
         <div className="App-footer">
-          <FooterMenu onFooterClicked = {this.handleFooterClicked} />
-        </div> 
+        <FooterMenu onFooterClicked = {this.handleFooterClicked}/>
+        </div>
       </div>
     );
   }
