@@ -1,0 +1,7 @@
+.Map-Content{
+    background-color: black;
+    margin: auto;
+    text-align: center;
+    flex: 1;
+    display: flex;
+}

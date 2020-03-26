@@ -6,6 +6,7 @@ import ChosenAppScreen from './screens/chosenAppScreen';
 import Maps from './components/maps';
 import FooterMenu from './components/footerMenu'
 import ResultAppScreen from './screens/resultAppScreen'
+import MapAppScreen from './screens/mapAppScreen'
 import InfoAppScreen from './screens/infoAppScreen'
 import footerMenu from './components/footerMenu';
 
@@ -65,7 +66,7 @@ class App extends Component {
     let content; 
     if(this.state.screen === "chosen"){ content = <ChosenAppScreen chosenPress={this.goToResult} cancelPress={this.cancelPressed} imageFromParent = {this.state.filechosen} />} 
     else if(this.state.screen === "result") { content = <ResultAppScreen cancelPress={this.cancelPressed} imageFromParent = {this.state.filechosen}/>} 
-    else if(this.state.screen === "maps") { content = <Maps mapShown = {this.openMapScreen} />; } 
+    else if(this.state.screen === "maps") { content = <MapAppScreen />; } 
     else if (this.state.screen === "info") {content = <InfoAppScreen/>} 
     else content = <StartAppScreen onChangeScreen = {this.changeScreen} /> 
     

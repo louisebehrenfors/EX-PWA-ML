@@ -10,7 +10,6 @@
   height: 80px;
 }
 
-
 .App-Image-Container{
   margin: auto;
 }
@@ -36,13 +35,15 @@
 }
 
 .App-content{
+  width: 100%;
+
   flex-grow: 1;
   height: auto;
   padding: 10px;
   margin: 0 auto;
   display: flex;
-  overflow: visible;
-  justify-content: center;
+  /*overflow: visible;*/
+  /*justify-content: center;*/
   padding-bottom: 70px ;
 }
 

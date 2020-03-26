@@ -9,7 +9,11 @@
     to { transform: rotate(360deg); }
   }
 .resultContainer{
+    width: 100%;
+    margin: 0 auto;
+    justify-content: center;
+    overflow: visible;
     height: auto;
-    padding-bottom: 50px;
+    padding-bottom: 100px;
     margin-bottom: 50px;
 }

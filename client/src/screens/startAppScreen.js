@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 import Buttons from '../components/buttons.js';
 import Camera from '../components/camera.js';
 import ButtonTest from '../components/fileHandeler';
-
+import './startAppScreen.css'
 
 class StartScreen extends Component {
     constructor () {
