@@ -8,7 +8,6 @@ import FooterMenu from './components/footerMenu'
 import ResultAppScreen from './screens/resultAppScreen'
 import MapAppScreen from './screens/mapAppScreen'
 import InfoAppScreen from './screens/infoAppScreen'
-import footerMenu from './components/footerMenu';
 
 class App extends Component {
   constructor () {

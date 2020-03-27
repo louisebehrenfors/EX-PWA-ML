@@ -32,7 +32,6 @@ export const checkOrientation = (file,canvas) => {
                 case 8:ctx.transform(0, -1, 1, 0, 0, canvas.width); break; 
                 default: break;
             }
-            console.log("EXIF information = "+ EXIF.pretty(this));
             }
         });
         URL.revokeObjectURL(img.src);

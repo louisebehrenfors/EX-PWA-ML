@@ -32,9 +32,6 @@ class MapContainer extends Component{
     }
    }     
   showPosition(position) {
-    console.log("Latitude = " + position.coords.latitude);
-    console.log("Longitude = " + position.coords.longitude);
-
     this.setState({
       long:position.coords.longitude,
       lati:position.coords.latitude,
@@ -55,8 +52,6 @@ class MapContainer extends Component{
   }
 
   onMarkerClick (props, marker, e) {
-    console.log(marker);
-    console.log(props);
     this.setState({
       selectedPlace: props,
       activeMarker: marker,
@@ -102,7 +97,7 @@ class MapContainer extends Component{
                 marker={this.state.activeMarker} 
                 visible={this.state.showingInfoWindow} 
           >    <div><h3>{this.state.selectedPlace.name}</h3></div>
-              </InfoWindow>
+          </InfoWindow>
         </Map>
       </div>
     );}
