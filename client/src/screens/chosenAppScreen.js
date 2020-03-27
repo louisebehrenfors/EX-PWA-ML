@@ -1,14 +1,18 @@
 import React, { Component } from 'react';
 import './chosenAppScreen.css'
 
+import {checkOrientation} from './imageRotator';
 class ChosenAppScreen extends Component {
-
-   
+    
+    componentDidMount() {
+        var canvas = document.getElementById('imgContainer');
+        checkOrientation(this.props.imageFromParent,canvas);
+    }
     render() {
-        var imageAsURL = URL.createObjectURL(this.props.imageFromParent);
+
         return(
         <div className="Chosen-Container">
-            <img src= {imageAsURL} />
+            <canvas id="imgContainer" width="800" height="800"></canvas>
             <button onClick={this.props.chosenPress} className="buttonClass"><h2>Välj denna bild</h2></button>
             <button onClick={this.props.cancelPress} className="buttonClass"><h2>Avbryt</h2></button>
         </div>
