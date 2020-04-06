@@ -19,6 +19,7 @@ class MapContainer extends Component{
         {lati:"59.386407", long:"13.569744", infoText:"Åvc Heden"},
       ]
     };
+    this.map = React.createRef();
     this.componentDidMount = this.componentDidMount.bind(this);
     this.showPosition =this.showPosition.bind(this);
     this.onMarkerClick = this.onMarkerClick.bind(this);
@@ -60,19 +61,32 @@ class MapContainer extends Component{
     var rlat2 = mk2.props.position.lat * (Math.PI/180); 
     var difflat = rlat2-rlat1; 
     var difflon = (mk2.props.position.lng -mk1.props.position.lng) * (Math.PI/180); 
-
     var d = 2 * R * Math.asin(Math.sqrt(Math.sin(difflat/2)*Math.sin(difflat/2)+Math.cos(rlat1)*Math.cos(rlat2)*Math.sin(difflon/2)*Math.sin(difflon/2)));
-    return d;
+    return {
+      dist: d,
+      marker: mk2
+    };
   }
 
-  distClicked() {
+  distClicked(yourMarker,stationMarkers) {
     var distances = [];
-    var length = this.state.recyclePlaces.length;
-    var stations = this.state.recyclePlaces;
-    var markers = [];
-    //TODO: make it possible to test from your own position
-    markers = this.displayMarker();
-    console.log("Distance = " + this.haversineDistance(markers[0],markers[1]));
+    for(var i in stationMarkers) {
+      distances[i] = this.haversineDistance(yourMarker,stationMarkers[i]);
+    }
+    var min = Math.min.apply(null, distances.map(item => item.dist));
+    var minIndexArr = distances.map(item => item.dist == min);  
+    var minIndex;
+    for(var j = 0; j < minIndexArr.length; j++) {
+      if(minIndexArr[j] == true) {
+        minIndex = j;
+        break;
+      }
+    }
+    var lat =  distances[minIndex].marker.props.position.lat;
+    var lng =  distances[minIndex].marker.props.position.lng;
+    //TODO zoom in on marker
+    alert("Närmaste återvinningsstation är " + min.toFixed(2) + " km bort " + distances[minIndex].marker.props.name);
+
   }
 
   onMarkerClick (props, marker, e) {
@@ -97,21 +111,13 @@ class MapContainer extends Component{
       };
 
     const {loading} = this.state.loading;
+    var personalMarker;
+    var markers;
 
     if(loading){return null;}
     else{
-    return (
-      <div className="Map-Content">
-      {/*TODO: make button work with map*/}
-        <button id="loc" onClick={() => { this.distClicked()}}>Press Me!</button> 
-        <Map className="Map-MapComponent"
-          
-          google={this.props.google}
-          zoom={14}
-          style={mapStyles}
-          initialCenter={{ lat:this.state.lati, lng: this.state.long}}
-          center={{lat:this.state.lati, lng:this.state.long}}>
-          <Marker 
+      markers = this.displayMarker();
+      personalMarker = <Marker 
             name="Din plats"
             onClick={this.onMarkerClick}
             icon = {iconCurrent}
@@ -120,7 +126,19 @@ class MapContainer extends Component{
             }
           >
           </Marker>
-          {this.displayMarker()}
+    return (
+      <div className="Map-Content">
+      {/*TODO: make button work with map*/}
+        <Map ref={this.map} className="Map-MapComponent"
+
+          google={this.props.google}
+          zoom={14}
+          style={mapStyles}
+          initialCenter={{ lat:this.state.lati, lng: this.state.long}}
+          center={{lat:this.state.lati, lng:this.state.long}}>
+          {markers}
+          {personalMarker}
+          <button id="loc" onClick={() => { this.distClicked(personalMarker,markers)}}>Hitta Närmaste Återvinningsstation</button> 
           <InfoWindow 
                 marker={this.state.activeMarker} 
                 visible={this.state.showingInfoWindow} 
