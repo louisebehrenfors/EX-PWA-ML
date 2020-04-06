@@ -1,6 +1,7 @@
 import { Map, GoogleApiWrapper, Marker, InfoWindow } from 'google-maps-react';
 import React, { Component } from 'react';
 import './mapAppScreen.css'
+import '../components/buttons.css'
 import iconCurrent from './currentLocation.png'
 
 class MapContainer extends Component{
@@ -138,7 +139,7 @@ class MapContainer extends Component{
           center={{lat:this.state.lati, lng:this.state.long}}>
           {markers}
           {personalMarker}
-          <button id="loc" onClick={() => { this.distClicked(personalMarker,markers)}}>Hitta Närmaste Återvinningsstation</button> 
+          <button id="loc" class ="buttonClass" onClick={() => { this.distClicked(personalMarker,markers)}}>Hitta Närmaste Återvinningsstation</button> 
           <InfoWindow 
                 marker={this.state.activeMarker} 
                 visible={this.state.showingInfoWindow} 
