@@ -1,4 +1,4 @@
-import React, { useState, Component } from "react";
+import React, { Component } from "react";
 
 import "./testButton.css";
 
@@ -29,8 +29,8 @@ class testButton extends Component {
       });
 
       let files = event.target.files[0];
-      var fp = target.value;
-      var fe = fp.slice(fp.length - 3);
+      //var fp = target.value;
+      //var fe = fp.slice(fp.length - 3);
 
       this.callBackParent(files);
     }

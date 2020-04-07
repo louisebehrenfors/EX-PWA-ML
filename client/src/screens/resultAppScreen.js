@@ -48,7 +48,7 @@ class ChosenAppScreen extends Component {
   };
 
   render() {
-    var imageAsURL = URL.createObjectURL(this.props.imageFromParent);
+    //var imageAsURL = URL.createObjectURL(this.props.imageFromParent);
     var fp = this.props.imageFromParent;
     var fe = fp.slice(fp.length - 3);
     console.log("fe = " + fe);

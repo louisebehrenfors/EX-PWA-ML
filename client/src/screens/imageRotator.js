@@ -19,7 +19,7 @@ export const checkOrientation = (file, canvas) => {
 
   EXIF.getData(file, function () {
     var orientation = EXIF.getTag(this, "Orientation");
-    if (orientation != 1) {
+    if (orientation !== 1) {
       //TODO: fix orientation
       switch (orientation) {
         case 2:

@@ -3,7 +3,6 @@ import logo1 from "./logo1.svg";
 import "./App.css";
 import StartAppScreen from "./screens/startAppScreen";
 import ChosenAppScreen from "./screens/chosenAppScreen";
-import Maps from "./components/maps";
 import FooterMenu from "./components/footerMenu";
 import ResultAppScreen from "./screens/resultAppScreen";
 import MapAppScreen from "./screens/mapAppScreen";

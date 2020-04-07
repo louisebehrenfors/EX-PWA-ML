@@ -1,5 +1,5 @@
 .ButtonsToFooter{
-   width: 100%;
+   width: 100vw;
    display: flex;
    flex-flow: row;
 
@@ -14,6 +14,6 @@
   }
 
   .buttonImages{
-   max-width: 80%;
-   max-height: 80%;
+   max-width: 70%;
+   max-height: 70%;
   }
