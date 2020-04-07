@@ -5,3 +5,7 @@
     flex: 1;
     display: flex;
 }
+#loc{
+    display: block;
+    margin-top: 380px;
+}
