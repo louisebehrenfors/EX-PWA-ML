@@ -55,8 +55,8 @@ class Camera extends Component {
             video.srcObject = stream;
             isVideoPlaying = true;
         }).catch(function(err){
-             //add something here so that it is clear that the camera does not have access
-             console.log("You did not give access to the camera!",err);
+                console.log(err);
+                alert('Du har inte gett tillåtelse att använda kameran');
         });
          pictureButton.addEventListener('click', () => {
              if(!this.state.pictureTaken && isVideoPlaying) {
