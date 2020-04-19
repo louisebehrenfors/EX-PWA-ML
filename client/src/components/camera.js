@@ -57,6 +57,7 @@ class Camera extends Component {
         }).catch(function(err){
                 console.log(err);
                 alert('Du har inte gett tillåtelse att använda kameran');
+
         });
          pictureButton.addEventListener('click', () => {
              if(!this.state.pictureTaken && isVideoPlaying) {

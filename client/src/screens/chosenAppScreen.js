@@ -8,7 +8,7 @@ class ChosenAppScreen extends Component {
         var imageAsURL = URL.createObjectURL(this.props.imageFromParent);
         return(
         <div className="Chosen-Container">
-            <img src= {imageAsURL} />
+            <img alt="din bild" src= {imageAsURL} />
             <button onClick={this.props.chosenPress} className="buttonClass"><h2>Välj denna bild</h2></button>
             <button onClick={this.props.cancelPress} className="buttonClass"><h2>Avbryt</h2></button>
         </div>

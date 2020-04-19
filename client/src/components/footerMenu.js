@@ -32,13 +32,13 @@ class footerMenu extends Component {
         return(
             <div className = "ButtonsToFooter">
                 <button onClick={this.homeButtonPressed} className="footerButton" > 
-                    <img className="buttonImages" src={button1image}/>
+                    <img alt="home" className="buttonImages" src={button1image}/>
                 </button>
                 <button onClick={this.mapsButtonPressed} className="footerButton"> 
-                    <img className="buttonImages" src={button2image}/>
+                    <img alt="map" className="buttonImages" src={button2image}/>
                 </button>
                 <button onClick={this.infoButtonPressed} className="footerButton">
-                    <img className="buttonImages" src={button3image}/>
+                    <img alt="info" className="buttonImages" src={button3image}/>
                 </button>
             </div>
         ); 

@@ -55,7 +55,7 @@ class ChosenAppScreen extends Component {
                 <h1>Resultat</h1>
                 <h2> Jag tror det är följande : {this.state.tagName} </h2>
                 <h3> Med sannolikhet: {this.state.probability}</h3>
-                <img src= {imageAsURL} />
+                <img alt="resultat" src= {imageAsURL} />
             </div>
             
             
@@ -63,7 +63,7 @@ class ChosenAppScreen extends Component {
         }
         else{
             content = <div>
-                <img className="loadingImage" src ={logo1}/>
+                <img alt="laddar" className="loadingImage" src ={logo1}/>
                 <h3> laddar ... </h3>
             </div>
              

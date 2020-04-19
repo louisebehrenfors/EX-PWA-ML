@@ -75,16 +75,16 @@ class MapContainer extends Component{
       distances[i] = this.haversineDistance(yourMarker,stationMarkers[i]);
     }
     var min = Math.min.apply(null, distances.map(item => item.dist));
-    var minIndexArr = distances.map(item => item.dist == min);  
+    var minIndexArr = distances.map(item => item.dist === min);  
     var minIndex;
     for(var j = 0; j < minIndexArr.length; j++) {
-      if(minIndexArr[j] == true) {
+      if(minIndexArr[j] === true) {
         minIndex = j;
         break;
       }
     }
-    var lat =  distances[minIndex].marker.props.position.lat;
-    var lng =  distances[minIndex].marker.props.position.lng;
+   /* var lat =  distances[minIndex].marker.props.position.lat;
+    var lng =  distances[minIndex].marker.props.position.lng; */
     //TODO zoom in on marker
     alert("Närmaste återvinningsstation är " + min.toFixed(2) + " km bort " + distances[minIndex].marker.props.name);
 
