@@ -31,7 +31,7 @@ class StartScreen extends Component {
             <div className="StartScreen">
                 {this.state.cameraOpen ? <Camera cancelClicked={this.setCameraState} displayCamera={this.setCameraState} parentCallBack = {this.callbackFunction}/> :  <Buttons takePhotoClicked={this.setCameraState}/>}
                 <ButtonTest parentCallBack = {this.callbackFunction}/>
-                <img alt = "din bild" src = {this.state.fileChosen} />
+                <img alt = "" src = {this.state.fileChosen} />
             </div>
         ); 
     }
