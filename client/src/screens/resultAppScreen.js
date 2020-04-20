@@ -65,7 +65,7 @@ class ChosenAppScreen extends Component {
     } else {
       content = (
         <div>
-          <img className="loadingImage" src={logo1} />
+          <img alt="laddar" className="loadingImage" src={logo1} />
           <h3> laddar ... </h3>
         </div>
       );

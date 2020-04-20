@@ -1,12 +1,12 @@
-import React, { Component } from "react";
-import logo1 from "./logo1.svg";
-import "./App.css";
-import StartAppScreen from "./screens/startAppScreen";
-import ChosenAppScreen from "./screens/chosenAppScreen";
-import FooterMenu from "./components/footerMenu";
-import ResultAppScreen from "./screens/resultAppScreen";
-import MapAppScreen from "./screens/mapAppScreen";
-import InfoAppScreen from "./screens/infoAppScreen";
+import React, { Component } from 'react';
+import logo1 from './logo1.svg'; 
+import './App.css';
+import StartAppScreen from './screens/startAppScreen';
+import ChosenAppScreen from './screens/chosenAppScreen';
+import FooterMenu from './components/footerMenu'
+import ResultAppScreen from './screens/resultAppScreen'
+import MapAppScreen from './screens/mapAppScreen'
+import InfoAppScreen from './screens/infoAppScreen'
 
 class App extends Component {
   constructor() {

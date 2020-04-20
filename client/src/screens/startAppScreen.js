@@ -38,7 +38,7 @@ class StartScreen extends Component {
           <Buttons takePhotoClicked={this.setCameraState} />
         )}
         <ButtonTest parentCallBack={this.callbackFunction} />
-        <img src={this.state.fileChosen} />
+        <img alt="" src={this.state.fileChosen} />
       </div>
     );
   }

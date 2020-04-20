@@ -28,21 +28,21 @@ class footerMenu extends Component {
     this.props.onFooterClicked(x);
   };
 
-  render() {
-    return (
-      <div className="ButtonsToFooter">
-        <button onClick={this.homeButtonPressed} className="footerButton">
-          <img className="buttonImages" src={button1image} />
-        </button>
-        <button onClick={this.mapsButtonPressed} className="footerButton">
-          <img className="buttonImages" src={button2image} />
-        </button>
-        <button onClick={this.infoButtonPressed} className="footerButton">
-          <img className="buttonImages" src={button3image} />
-        </button>
-      </div>
-    );
-  }
+    render() {
+        return(
+            <div className = "ButtonsToFooter">
+                <button onClick={this.homeButtonPressed} className="footerButton" > 
+                    <img alt="home" className="buttonImages" src={button1image}/>
+                </button>
+                <button onClick={this.mapsButtonPressed} className="footerButton"> 
+                    <img alt="map" className="buttonImages" src={button2image}/>
+                </button>
+                <button onClick={this.infoButtonPressed} className="footerButton">
+                    <img alt="info" className="buttonImages" src={button3image}/>
+                </button>
+            </div>
+        ); 
+    }
 }
 
 export default footerMenu;
