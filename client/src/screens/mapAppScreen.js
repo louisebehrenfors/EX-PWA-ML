@@ -93,7 +93,7 @@ class MapContainer extends Component {
       }
     }
     var lat =  distances[minIndex].marker.props.position.lat;
-    var lng =  distances[minIndex].marker.props.position.lng;
+    var lng =  distances[minIndex].marker.props.position.lng; 
     //TODO zoom in on marker
     alert("Närmaste återvinningsstation är " + min.toFixed(2) + " km bort " + distances[minIndex].marker.props.name);
     console.log(distances[minIndex].marker)
