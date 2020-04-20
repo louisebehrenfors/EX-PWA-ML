@@ -3,6 +3,14 @@ import "./chosenAppScreen.css";
 
 import { checkOrientation } from "./imageRotator";
 class ChosenAppScreen extends Component {
+  constructor() {
+    super();
+    this.state = {
+      widthOfScreen:"",
+      heightOfScreen:"",
+    };
+  }
+
   componentDidMount() {
     var canvas = document.getElementById("imgContainer");
     checkOrientation(this.props.imageFromParent, canvas);
