@@ -1,6 +1,7 @@
 import { Map, GoogleApiWrapper, Marker, InfoWindow } from "google-maps-react";
 import React, { Component } from "react";
 import "./mapAppScreen.css";
+import '../components/buttons.css';
 import iconCurrent from "./CurrentLocation.png";
 
 class MapContainer extends Component {
@@ -9,6 +10,8 @@ class MapContainer extends Component {
     this.state = {
       long: "13.503266",
       lati: "59.381368",
+      plong:"",
+      plati:"",
       loading: true,
       selectedPlace: {},
       activeMarker: {},
@@ -43,6 +46,8 @@ class MapContainer extends Component {
   };
   showPosition(position) {
     this.setState({
+      plong: position.coords.longitude,
+      plati: position.coords.latitude,
       long: position.coords.longitude,
       lati: position.coords.latitude,
       loading: false,
@@ -91,10 +96,19 @@ class MapContainer extends Component {
     var lng =  distances[minIndex].marker.props.position.lng; */
     //TODO zoom in on marker
     alert("Närmaste återvinningsstation är " + min.toFixed(2) + " km bort " + distances[minIndex].marker.props.name);
+    console.log(distances[minIndex].marker)
+    
+    this.setState({
+      lati: lat,
+      long: lng,
+    
+ 
+    })
 
   }
 
   onMarkerClick(props, marker, e) {
+ 
     this.setState({
       selectedPlace: props,
       activeMarker: marker,
@@ -124,7 +138,7 @@ class MapContainer extends Component {
             onClick={this.onMarkerClick}
             icon = {iconCurrent}
             position={
-              {lat:this.state.lati, lng:this.state.long}
+              {lat:this.state.plati, lng:this.state.plong}
             }
           >
           </Marker>
@@ -132,7 +146,6 @@ class MapContainer extends Component {
       <div className="Map-Content">
       {/*TODO: make button work with map*/}
         <Map ref={this.map} className="Map-MapComponent"
-
           google={this.props.google}
           zoom={14}
           style={mapStyles}
@@ -140,7 +153,7 @@ class MapContainer extends Component {
           center={{lat:this.state.lati, lng:this.state.long}}>
           {markers}
           {personalMarker}
-          <button id="loc" class ="buttonClass" onClick={() => { this.distClicked(personalMarker,markers)}}>Hitta Närmaste Återvinningsstation</button> 
+          <button id="loc" className="buttonClass" onClick={() => { this.distClicked(personalMarker,markers)}}><h3>Hitta Närmaste Återvinningsstation</h3></button> 
           <InfoWindow 
                 marker={this.state.activeMarker} 
                 visible={this.state.showingInfoWindow} 
