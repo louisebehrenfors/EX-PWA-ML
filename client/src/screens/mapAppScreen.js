@@ -2,7 +2,7 @@ import { Map, GoogleApiWrapper, Marker, InfoWindow } from 'google-maps-react';
 import React, { Component } from 'react';
 import './mapAppScreen.css'
 import '../components/buttons.css'
-import iconCurrent from './currentLocation.png'
+import iconCurrent from './CurrentLocation.png'
 
 class MapContainer extends Component{
   constructor (){
