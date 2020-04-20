@@ -32,7 +32,7 @@ class footerMenu extends Component {
     return (
       <div className="ButtonsToFooter">
         <button onClick={this.homeButtonPressed} className="footerButton">
-          <img className="buttonImages" src={button1image} />
+          <img className="buttonImages" src={button1image} alt="Hemskärmsknapp"/>
         </button>
         <button onClick={this.mapsButtonPressed} className="footerButton">
           <img className="buttonImages" src={button2image} />
