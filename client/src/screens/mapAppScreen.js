@@ -12,6 +12,7 @@ class MapContainer extends Component {
       lati: "59.381368",
       plong:"",
       plati:"",
+      zoomlevel:14,
       loading: true,
       selectedPlace: {},
       activeMarker: {},
@@ -50,6 +51,7 @@ class MapContainer extends Component {
       plati: position.coords.latitude,
       long: position.coords.longitude,
       lati: position.coords.latitude,
+      
       loading: false,
     });
   }
@@ -100,9 +102,7 @@ class MapContainer extends Component {
     
     this.setState({
       lati: lat,
-      long: lng,
-    
- 
+      long: lng, 
     })
 
   }
@@ -117,13 +117,13 @@ class MapContainer extends Component {
   }
   render() {
     const mapStyles = {
-      width: "97vw",
+      width: "100w",
       height: "50%",
-      flex: 1,
-      display: "inline-flex",
-      textAlign: "center",
-      alignItems: "center",
-      justifyContent: "center",
+      //flex: 1,
+      //display: "inline-flex",
+      // textAlign: "center",
+      // alignItems: "center",
+      // justifyContent: "center",
     };
 
     const {loading} = this.state.loading;
@@ -143,23 +143,27 @@ class MapContainer extends Component {
           >
           </Marker>
     return (
-      <div className="Map-Content">
-      {/*TODO: make button work with map*/}
-        <Map ref={this.map} className="Map-MapComponent"
-          google={this.props.google}
-          zoom={14}
-          style={mapStyles}
-          initialCenter={{ lat:this.state.lati, lng: this.state.long}}
-          center={{lat:this.state.lati, lng:this.state.long}}>
-          {markers}
-          {personalMarker}
+      <div className="Map-Screen">
+        <div className="Map-Content">
+            <Map ref={this.map} 
+              google={this.props.google}
+              zoom={this.state.zoomlevel}
+              defaultZoom={this.state.zoomlevel}
+              style={mapStyles}
+              initialCenter={{ lat:this.state.lati, lng: this.state.long}}
+              center={{lat:this.state.lati, lng:this.state.long}}>
+              {markers}
+              {personalMarker}
+              <InfoWindow 
+                    marker={this.state.activeMarker} 
+                    visible={this.state.showingInfoWindow} 
+              >    <div><h3>{this.state.selectedPlace.name}</h3></div>
+                  </InfoWindow>
+            </Map> 
+        </div>
+        <div className="Map-ButtonClass">
           <button id="loc" className="buttonClass" onClick={() => { this.distClicked(personalMarker,markers)}}><h3>Hitta Närmaste Återvinningsstation</h3></button> 
-          <InfoWindow 
-                marker={this.state.activeMarker} 
-                visible={this.state.showingInfoWindow} 
-          >    <div><h3>{this.state.selectedPlace.name}</h3></div>
-              </InfoWindow>
-        </Map> 
+      </div>
       </div>
     );}
   }
