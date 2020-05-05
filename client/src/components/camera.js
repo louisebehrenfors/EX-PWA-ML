@@ -44,6 +44,7 @@ class Camera extends Component {
         var videoConstraints = {
             video: {facingMode: "environment"} 
         };
+        video.setAttribute('playsinline','');
         var isVideoPlaying = false;
         const cancelButton = document.getElementById('cancel');
         const pictureButton = document.getElementById('takePicture');
@@ -113,7 +114,7 @@ class Camera extends Component {
     return (
       <div className="cameraWrapper">
         <video id="cameraStream" muted="muted" autoPlay></video>
-        <canvas id="canvas" width="751" height="450"></canvas>
+        <canvas id="canvas" width="750" height="450"></canvas>
         <button className="cameraButtons" id="takePicture">
           {" "}
           Ta bild{" "}

@@ -7,8 +7,8 @@ export const checkOrientation = (file, canvas) => {
   var ctx = canvas.getContext("2d");
   var img = new Image();
   canvas.style.display = "block";
-  canvas.style.margin = "0 auto";
-  canvas.style.width = "75%";
+  canvas.style.margin = "0";
+  canvas.style.width = "80%";
 
   img.onload = function () {
     var scale = Math.min(canvas.width / img.width, canvas.height / img.height);
@@ -20,20 +20,12 @@ export const checkOrientation = (file, canvas) => {
   EXIF.getData(file, function () {
     var orientation = EXIF.getTag(this, "Orientation");
     if (orientation !== 1) {
-      //TODO: fix orientation
       switch (orientation) {
         case 2:
           /* flip vertically */ ctx.transform(-1, 0, 0, 1, canvas.width, 0);
           break;
         case 3:
-          /* rotate 180 degrees */ ctx.transform(
-            -1,
-            0,
-            0,
-            -1,
-            canvas.width,
-            canvas.height
-          );
+          /* rotate 180 degrees */ ctx.transform(-1,0,0,-1,canvas.width,canvas.height);
           break;
         case 4:
           ctx.transform(0, 1, 1, 0, 0, 0);
