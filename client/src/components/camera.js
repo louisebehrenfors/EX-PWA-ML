@@ -44,9 +44,9 @@ class Camera extends Component {
         var videoConstraints = {
             video: {facingMode: "environment"} 
         };
-        video.setAttribute('autoplay','');
-        video.setAttribute('muted','');
-        video.setAttribute('playsinline','');
+        video.setAttribute('autoplay',true);
+        video.setAttribute('muted',true);
+        video.setAttribute('playsinline',true);
         var isVideoPlaying = false;
         const cancelButton = document.getElementById('cancel');
         const pictureButton = document.getElementById('takePicture');
