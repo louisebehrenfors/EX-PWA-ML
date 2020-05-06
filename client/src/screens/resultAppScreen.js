@@ -3,6 +3,7 @@ import logo1 from "./logo1.svg";
 import "./resultAppScreen.css";
 import { checkOrientation } from "./imageRotator";
 const $ = window.$;
+const predUrl ="";
 const predictionKey = "";
 
 class ChosenAppScreen extends Component {
@@ -24,7 +25,7 @@ class ChosenAppScreen extends Component {
     var prop;
     $.ajax({
       type: "POST",
-      url: "",
+      url: predUrl,
       processData: false,
       data: this.props.imageFromParent,
       headers: {
