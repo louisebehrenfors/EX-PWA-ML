@@ -13,7 +13,10 @@ class ChosenAppScreen extends Component {
 
   componentDidMount() {
     var canvas = document.getElementById("imgContainer");
+
     checkOrientation(this.props.imageFromParent, canvas);
+    // canvas.width = window.innerWidth;
+    // canvas.height = window.innerHeight;
   }
   render() {
     return (
