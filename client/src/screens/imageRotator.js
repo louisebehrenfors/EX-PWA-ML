@@ -6,12 +6,15 @@ export const checkOrientation = (file, canvas) => {
   console.log("canvas = " + canvas);
   var ctx = canvas.getContext("2d");
   var img = new Image();
-  canvas.style.display = "block";
+  canvas.style.display = "inline";
   canvas.style.margin = "0";
   canvas.style.width = "80%";
 
   img.onload = function () {
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight * 0.5;
     var scale = Math.min(canvas.width / img.width, canvas.height / img.height);
+
     var x = canvas.width / 2 - (img.width / 2) * scale;
     var y = canvas.height / 2 - (img.height / 2) * scale;
     ctx.drawImage(img, x, y, img.width * scale, img.height * scale);
