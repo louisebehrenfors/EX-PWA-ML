@@ -18,7 +18,7 @@ class ChosenAppScreen extends Component {
   render() {
     return (
       <div className="Chosen-Container">
-        <canvas id="imgContainer" width="800" height="800"></canvas>
+        <canvas id="imgContainer" width="750" height="450"></canvas>
         <button onClick={this.props.chosenPress} className="buttonClass">
           <h2>Välj denna bild</h2>
         </button>

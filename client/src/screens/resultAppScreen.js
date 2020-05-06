@@ -74,7 +74,7 @@ class ChosenAppScreen extends Component {
     return (
       <div className="resultContainer">
         {content}
-        <canvas id="resultCanvas" height="800" width="800"></canvas>
+        <canvas id="resultCanvas" height="450" width="750"></canvas>
         <button className="buttonClass" onClick={this.props.cancelPress}>
           <h2> Gå tillbaka </h2>
         </button>

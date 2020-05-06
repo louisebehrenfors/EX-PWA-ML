@@ -17,3 +17,6 @@
     padding-bottom: 100px;
     margin-bottom: 50px;
 }
+#resultCanvas {
+    position: block;
+}
