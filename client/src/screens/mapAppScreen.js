@@ -117,8 +117,8 @@ class MapContainer extends Component {
   }
   render() {
     const mapStyles = {
-      width: "100w",
-      height: "50%",
+      width: "100vw",
+      height: "45vh",
       //flex: 1,
       //display: "inline-flex",
       // textAlign: "center",

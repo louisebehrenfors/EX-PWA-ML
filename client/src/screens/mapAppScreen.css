@@ -2,9 +2,8 @@
 .Map-Screen{
     flex: 1;
     justify-content: center;
+    align-items: center;
     overflow: auto;
-    background-color: turquoise;
-    
     width: 100vw;
 }
 
@@ -12,14 +11,16 @@
     height: auto;
     margin: 0 auto;
     text-align: center;
-    background-color: yellowgreen;
+
 }
 
 .Map-ButtonClass{
+    margin-top: 47vh;
     justify-content: center;
     flex:1;
-    width: 90vw;
-    background-color: pink;
+    width: 100vw;
+
+
 
 }
 #loc{
