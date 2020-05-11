@@ -20,7 +20,7 @@ class testButton extends Component {
 
   handleChange(event) {
     let target = event.target;
-    console.log(target.value.length);
+    //console.log(target.value.length);
     if (target.value.length === 0) {
       this.setState(() => ({ file: null, fileSelected: false }));
     } else {

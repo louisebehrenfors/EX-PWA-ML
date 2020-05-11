@@ -11,12 +11,12 @@ class Maps extends Component {
     if (navigator.geolocation) {
       navigator.geolocation.getCurrentPosition(this.showPosition);
     } else {
-      console.log("No support for geolocation");
+      //console.log("No support for geolocation");
     }
   };
   showPosition(position) {
-    console.log("Latitude = " + position.coords.latitude);
-    console.log("Longitude = " + position.coords.longitude);
+    //console.log("Latitude = " + position.coords.latitude);
+    //console.log("Longitude = " + position.coords.longitude);
   }
 
   render() {

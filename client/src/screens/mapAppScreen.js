@@ -42,7 +42,7 @@ class MapContainer extends Component {
     if (navigator.geolocation) {
       navigator.geolocation.getCurrentPosition(this.showPosition);
     } else {
-      console.log("No support for geolocation");
+      //console.log("No support for geolocation");
     }
   };
   showPosition(position) {
@@ -98,7 +98,7 @@ class MapContainer extends Component {
     var lng =  distances[minIndex].marker.props.position.lng; 
     //TODO zoom in on marker
     alert("Närmaste återvinningsstation är " + min.toFixed(2) + " km bort " + distances[minIndex].marker.props.name);
-    console.log(distances[minIndex].marker)
+    //console.log(distances[minIndex].marker)
     
     this.setState({
       lati: lat,

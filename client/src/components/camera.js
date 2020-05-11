@@ -12,7 +12,7 @@ class Camera extends Component {
   }
   cancelClicked() {
     //set state, was cancel clicked
-    console.log("Cancel button clicked");
+    //console.log("Cancel button clicked");
     this.setState({
       cameraOpen: false,
       pictureTaken: false,
@@ -22,7 +22,7 @@ class Camera extends Component {
 
     takePictureClicked() {
         //sets state, if the picture button was clicked or not 
-        console.log("Take picture button clicked");
+        //console.log("Take picture button clicked");
         this.setState({
             pictureTaken: true
         });
@@ -32,7 +32,7 @@ class Camera extends Component {
     }
     stopVideoStream(videoStream) {
         videoStream = document.getElementById('cameraStream');
-        console.log("Here");
+        //console.log("Here");
         videoStream.srcObject.getVideoTracks().forEach(track => track.stop());
     }
     URLtoBlob(URL) {
@@ -57,24 +57,24 @@ class Camera extends Component {
             video.srcObject = stream;
             isVideoPlaying = true;
         }).catch(function(err){
-                console.log(err);
+                //console.log(err);
                 alert('Du har inte gett tillåtelse att använda kameran');
 
         });
          pictureButton.addEventListener('click', () => {
              if(!this.state.pictureTaken && isVideoPlaying) {
-                 console.log("video width = " + video.videoWidth + " video height = " + video.videoHeight);
+                 //console.log("video width = " + video.videoWidth + " video height = " + video.videoHeight);
                  var scale = Math.min(canvas.width / video.videoWidth, canvas.height / video.videoHeight);
                  var x = (canvas.width / 2) - (video.videoWidth / 2) * scale;
                  var y = (canvas.height / 2) - (video.videoHeight / 2) * scale;
-                 console.log("scale = " + scale);
+                 //console.log("scale = " + scale);
                  this.takePictureClicked();
                  canvas.style.display = "block";
                  video.style.display = "none";
                  context.drawImage(video,x,y,video.videoWidth,video.videoHeight);
                  var imgURL = canvas.toDataURL();
-                 console.log("imageURL = " + imgURL);
-                 console.log("imgurl type = ",typeof imgURL);
+                 //console.log("imageURL = " + imgURL);
+                 //console.log("imgurl type = ",typeof imgURL);
                  this.URLtoBlob(imgURL);
                  this.stopVideoStream(video);
                  pictureButton.style.display = "none";
@@ -85,13 +85,13 @@ class Camera extends Component {
     savePictureButton.addEventListener("click", () => {
       this.savePicture();
       var imgURL = canvas.toDataURL();
-      console.log("imageURL = " + imgURL);
-      console.log("imgurl type = ", typeof imgURL);
+      //console.log("imageURL = " + imgURL);
+      //console.log("imgurl type = ", typeof imgURL);
       this.URLtoBlob(imgURL);
     });
 
     cancelButton.addEventListener("click", () => {
-      console.log("isVideoPlaying = " + isVideoPlaying);
+      //console.log("isVideoPlaying = " + isVideoPlaying);
       if (isVideoPlaying) {
         this.stopVideoStream(video);
         isVideoPlaying = false;

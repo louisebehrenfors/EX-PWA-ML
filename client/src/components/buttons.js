@@ -9,7 +9,7 @@ class Buttons extends Component {
   }
 
   takePhotoClicked() {
-    console.log("Photo button was clicked");
+    //console.log("Photo button was clicked");
     this.setState({
       cameraOpen: true,
     });

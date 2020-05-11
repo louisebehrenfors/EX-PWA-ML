@@ -24,11 +24,11 @@ class testButton extends Component {
     _handleButtonClick = (e) => {
         e.preventDefault(); 
         this.createFileExplorer.click(); 
-        console.log(this.createFileExplorer);
+        //console.log(this.createFileExplorer);
         // this._openFileSelector (); 
     }
     _viewImage = () => {
-        console.log("Här");
+        //console.log("Här");
     }
     componentDidMount = () => {
         this.createFileExplorer = _openFileSelector(); 
