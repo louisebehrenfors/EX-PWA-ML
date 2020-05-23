@@ -6,9 +6,17 @@ export const checkOrientation = (file, canvas) => {
   console.log("canvas = " + canvas);
   var ctx = canvas.getContext("2d");
   var img = new Image();
-  canvas.style.display = "inline";
-  canvas.style.margin = "0";
-  canvas.style.width = "80%";
+  /*canvas.style.display = "inline";
+  canvas.style.margin = "0 auto";
+  canvas.style.width = "80%"; */
+  canvas.style.marginTop  = "0px";
+  canvas.style.overflow = "hidden";
+  canvas.style.display = "block";
+  canvas.style.width = "60vw";
+  canvas.style.height = "40vw";
+  canvas.style.objectFit = "cover";
+  canvas.style.margin = "0 auto ";
+
 
   img.onload = function () {
     canvas.width = window.innerWidth;
