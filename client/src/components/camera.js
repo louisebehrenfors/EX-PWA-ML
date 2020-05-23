@@ -108,7 +108,7 @@ class Camera extends Component {
     this.setState({
       file: sendData,
     });
-    console.log("sendData = " + sendData);
+    //console.log("sendData = " + sendData);
     this.props.parentCallBack(sendData);
   };
 
