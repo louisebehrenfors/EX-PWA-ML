@@ -2,8 +2,8 @@ import EXIF from "exif-js";
 
 export const checkOrientation = (file, canvas) => {
   //checks EXIF orientation data of jpg files and changes it to the correct one
-  console.log("file = " + file);
-  console.log("canvas = " + canvas);
+  //console.log("file = " + file);
+  //console.log("canvas = " + canvas);
   var ctx = canvas.getContext("2d");
   var img = new Image();
   /*canvas.style.display = "inline";

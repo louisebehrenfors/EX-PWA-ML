@@ -4,7 +4,9 @@ import "./resultAppScreen.css";
 import { checkOrientation } from "./imageRotator";
 const $ = window.$;
 const predUrl ="";
+const predUrl1 ="";
 const predictionKey = "";
+const trainingKey = "";
 
 class ChosenAppScreen extends Component {
   constructor() {
@@ -34,8 +36,27 @@ class ChosenAppScreen extends Component {
       },
     })
       .done(function (data) {
-        console.log(data);
-        console.log(data.predictions[0].tagName);
+        //console.log(data);
+        //OVAN ÄR OK 
+        $.ajax({
+          type: "DELETE",
+          url: predUrl1+data.id+"}",
+          processData: false,
+          headers: {
+            "Training-Key": trainingKey,
+           
+          },
+        })
+        .done(function (data) {
+
+        })
+        .fail(function (xhr, status, err) {
+          alert(err, status, xhr);
+        });
+
+        //NEDAN ÄR OK
+        
+        //console.log(data.predictions[0].tagName);
         prop = (data.predictions[0].probability * 100).toFixed(0) + "%";
         self.setState({
           tagName: data.predictions[0].tagName,
@@ -50,9 +71,9 @@ class ChosenAppScreen extends Component {
 
   render() {
     //var imageAsURL = URL.createObjectURL(this.props.imageFromParent);
-    var fp = this.props.imageFromParent;
-    var fe = fp.slice(fp.length - 3);
-    console.log("fe = " + fe);
+    //var fp = this.props.imageFromParent;
+    //var fe = fp.slice(fp.length - 3);
+    //console.log("fe = " + fe);
     let content;
 
     if (this.state.ajaxComplete) {
